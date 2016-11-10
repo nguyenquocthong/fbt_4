@@ -220,14 +220,10 @@ body.sub-page {
   font-family: "Roboto Slab", sans-serif;
 }
 
-.box-content {
-  padding: 80px 0 90px;
-}
-
 .box-content .heading{
+  margin: 0 auto;
   text-align: center;
   width: 100%;
-  margin: -130px;
 }
 
 .heading h2 {
@@ -242,6 +238,7 @@ body.sub-page {
   text-transform: uppercase;
   color: #fff;
   font-family: "Roboto Slab", serif;
+  top: -50px;
 }
 
 .heading h2:after {
@@ -327,4 +324,9 @@ body.sub-page {
 
 .content{
   margin-top: 70px;
+}
+
+footer .wrap-footer {
+  padding: 30px 50px 20px;
+  background-color: #ffffff;
 }

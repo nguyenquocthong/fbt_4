@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <h2><%= t "view.edit" %> <%= resource_name.to_s.humanize %></h2>
+
+      <%= form_for resource, as: resource_name, url: registration_path(resource_name),
+        html: {method: :put, class: "form-horizontal"} do |f| %>
+        <%= devise_error_messages! %>
+
+        <div class="form-group">
+          <%= f.label :email, class: "control-label col-md-2" %>
+          <div class="col-md-8">
+            <%= f.email_field :email, autofocus: true, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :password, class: "control-label col-md-2" %>
+          <div class="col-md-8">
+            <%= f.password_field :password, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :password_confirmation, class: "control-label col-md-2" %>
+          <div class="col-md-8">
+            <%= f.password_field :password_confirmation, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :current_password, class: "control-label col-md-2" %>
+          <div class="col-md-8">
+            <%= f.password_field :current_password, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="col-md-offset-4">
+          <%= f.submit t("view.edit"), class: "btn btn-success col-md-3" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <%= link_to t("view.back"), :back %>
+  </div>
+</div>

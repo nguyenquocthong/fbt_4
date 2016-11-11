@@ -7,4 +7,6 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :rates, dependent: :destroy
   has_many :likes, dependent: :destroy
+
+  enum role: [:user, :admin, :guess]
 end

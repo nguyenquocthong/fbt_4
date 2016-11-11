@@ -12,6 +12,9 @@ gem "jbuilder", "~> 2.5"
 gem "font-awesome-rails"
 gem "bootstrap-sass", "~> 3.3.6"
 gem "devise"
+gem "kaminari"
+gem "cancancan", "~> 1.10"
+gem "bootstrap-kaminari-views"
 
 group :development, :test do
   gem "byebug", platform: :mri

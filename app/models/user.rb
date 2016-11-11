@@ -1,5 +1,6 @@
 class User < ApplicationRecord
-  devise :database_authenticatable, :registerable, :rememberable, :validatable
+  devise :database_authenticatable, :registerable, :rememberable, :validatable,
+    :omniauthable, omniauth_providers: [:facebook]
   has_many :activities, dependent: :destroy
   has_many :bookings, dependent: :destroy
   has_many :bank_accounts, dependent: :destroy
@@ -9,4 +10,18 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
 
   enum role: [:user, :admin, :guess]
+
+  class << self
+    def from_omniauth token
+      data = token.info
+      user = User.find_by email: data["email"]
+      unless user
+        password = Devise.friendly_token[0,20]
+        user = User.create name: data["name"], email: data["email"],
+          gravatar: data["image"], password: password,
+          password_confirmation: password
+      end
+      user
+    end
+  end
 end

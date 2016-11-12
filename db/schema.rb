@@ -113,6 +113,7 @@ ActiveRecord::Schema.define(version: 20161111103317) do
 
   create_table "tours", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
+    t.integer  "place_id"
     t.date     "time_tour"
     t.date     "start_day"
     t.string   "start_place"
@@ -122,7 +123,6 @@ ActiveRecord::Schema.define(version: 20161111103317) do
     t.float    "avgrate",     limit: 24
     t.integer  "numberrate"
     t.integer  "is_active"
-    t.integer  "place_id"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
     t.index ["place_id"], name: "index_tours_on_place_id", using: :btree

@@ -17,6 +17,7 @@ gem "cancancan", "~> 1.10"
 gem "bootstrap-kaminari-views"
 gem "config"
 gem "omniauth-facebook"
+gem "faker"
 
 group :development, :test do
   gem "byebug", platform: :mri

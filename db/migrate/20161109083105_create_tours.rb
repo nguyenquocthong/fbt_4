@@ -9,11 +9,9 @@ class CreateTours < ActiveRecord::Migration[5.0]
       t.integer :price
       t.text :description
       t.text :schedule
-      t.float :avgrate
-      t.integer :numberrate
       t.integer :is_active
-      t.references :place, foreign_key: true
-      
+      t.references :place
+
       t.timestamps
     end
   end

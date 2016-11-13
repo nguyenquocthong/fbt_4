@@ -6,7 +6,6 @@ class User < ApplicationRecord
   has_many :bank_accounts, dependent: :destroy
   has_many :reviews, dependent: :destroy
   has_many :comments, dependent: :destroy
-  has_many :rates, dependent: :destroy
   has_many :likes, dependent: :destroy
 
   enum role: [:user, :admin, :guess]
@@ -24,4 +23,5 @@ class User < ApplicationRecord
       user
     end
   end
+  ratyrate_rater
 end

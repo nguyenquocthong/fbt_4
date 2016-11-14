@@ -11,7 +11,8 @@ class CreateTours < ActiveRecord::Migration[5.0]
       t.float :avgrate
       t.integer :numberrate
       t.integer :is_active
-
+      t.references :place, foreign_key: true
+      
       t.timestamps
     end
   end

@@ -42,6 +42,18 @@ en:
     shared:
       error_message: "This error contain: "
       error: "error"
+    titlereview: "Review"
+    reviewby: "Review by: "
+    contentreview: "Content review"
+    edit_review: "Edit review"
+    create_review: "Create review"
+    place: "Place "
+    food: "Food"
+    news: "News"
+    rate_fail: "Let's rate tour in your review!"
+    say: "say: "
+    continute: "Continute"
+    delete: "Delete"
   admin:
     categories:
       index:
@@ -110,3 +122,12 @@ en:
     create_review_success: "Create review success"
     create_review_fail: "Create review fail"
     find_tour_fail: "Don't find tour"
+    create_review_success: "Create review success"
+    create_review_fail: "Create review fail"
+    find_tour_fail: "Don't find tour"
+    find_review_fail: "Don't find review"
+    update_success: "Update success"
+    update_fail: "Update fail"
+    destroy_success: "Destroy success"
+    destroy_fail: "Destroy fail"
+    permission: "You don't have permission"

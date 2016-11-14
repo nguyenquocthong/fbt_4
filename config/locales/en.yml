@@ -39,3 +39,35 @@ en:
     characters_minimum: "characters minimum"
     edit: "Edit"
     back: "Back"
+  admin:
+    categories:
+      index:
+        title: "All categories"
+        edit: "Edit"
+        add_category: "Add new category"
+        category_id: "Category ID"
+        category_name: "Name"
+        category_action: "Action"
+        button_delete: "Delete"
+      new:
+        title: "New category"
+        content: "Add a new category"
+        submit_button: "Add new category"
+      edit:
+        title: "Edit categories"
+        content: "Update this category"
+        submit_button: "Save"
+    shared:
+      error_message: "This error contain: "
+      error: "error"
+  controllers:
+    admin:
+      categories:
+        flash:
+          create_category: "New category was saved"
+          edit_category: "Edit successfully"
+          delete_category: "Delete successfully"
+          invalid_category: "Invalid category"
+          not_delete: "can't delete"
+  application:
+    nil: "not find id"

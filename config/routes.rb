@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :categories
+    resources :places
   end
   resources :tours, only: :show
 end

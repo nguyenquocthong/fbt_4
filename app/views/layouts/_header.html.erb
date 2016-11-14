@@ -20,10 +20,14 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <% if user_signed_in? %>
-            <% if can? :manage, Category %>
+            <% if can? :manage, :all %>
               <li>
                 <%= link_to t("views.header.categories_manager"),
                   admin_categories_path %>
+              </li>
+              <li>
+                <%= link_to t("views.header.places_manager"),
+                  admin_places_path %>
               </li>
             <% end %>
             <li>

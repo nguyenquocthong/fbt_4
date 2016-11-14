@@ -122,8 +122,10 @@ ActiveRecord::Schema.define(version: 20161110075221) do
     t.float    "avgrate",     limit: 24
     t.integer  "numberrate"
     t.integer  "is_active"
+    t.integer  "place_id"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+    t.index ["place_id"], name: "index_tours_on_place_id", using: :btree
   end
 
   create_table "tours_categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -176,6 +178,7 @@ ActiveRecord::Schema.define(version: 20161110075221) do
   add_foreign_key "rates", "users"
   add_foreign_key "reviews", "tours"
   add_foreign_key "reviews", "users"
+  add_foreign_key "tours", "places"
   add_foreign_key "tours_categories", "categories"
   add_foreign_key "tours_categories", "tours"
   add_foreign_key "tours_discounts", "discounts"

@@ -56,6 +56,24 @@ en:
         title: "Edit categories"
         content: "Update this category"
         submit_button: "Save"
+    places:
+        index:
+          title: "All places"
+          edit: "Edit"
+          add_category: "Add new place"
+          place_id: "Category ID"
+          place_name: "Name"
+          place_action: "Action"
+          button_delete: "Delete"
+          confirm: "Are you delete ?"
+        new:
+          title: "New place"
+          content: "Add a new place"
+          submit_button: "Add new place"
+        edit:
+          title: "Edit places"
+          content: "Update this place"
+          submit_button: "Save"
     shared:
       error_message: "This error contain: "
       error: "error"
@@ -67,6 +85,13 @@ en:
           edit_category: "Edit successfully"
           delete_category: "Delete successfully"
           invalid_category: "Invalid category"
+          not_delete: "can't delete"
+      places:
+        flash:
+          create_place: "New place was saved"
+          edit_place: "Edit successfully"
+          delete_place: "Delete successfully"
+          invalid_place: "Invalid place"
           not_delete: "can't delete"
   application:
     nil: "not find id"

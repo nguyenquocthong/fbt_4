@@ -15,6 +15,7 @@ gem "devise"
 gem "kaminari"
 gem "cancancan", "~> 1.10"
 gem "bootstrap-kaminari-views"
+gem "config"
 
 group :development, :test do
   gem "byebug", platform: :mri

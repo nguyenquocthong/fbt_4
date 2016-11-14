@@ -38,6 +38,10 @@ en:
     characters_minimum: "characters minimum"
     edit: "Edit"
     back: "Back"
+    create_review: Create Review
+    shared:
+      error_message: "This error contain: "
+      error: "error"
   admin:
     categories:
       index:
@@ -74,9 +78,7 @@ en:
           title: "Edit places"
           content: "Update this place"
           submit_button: "Save"
-    shared:
-      error_message: "This error contain: "
-      error: "error"
+
   controllers:
     admin:
       categories:
@@ -104,3 +106,7 @@ en:
     payment: Payment
     must_sign_in: You must signin
     booking_tour: Booking tour
+  controller:
+    create_review_success: "Create review success"
+    create_review_fail: "Create review fail"
+    find_tour_fail: "Don't find tour"

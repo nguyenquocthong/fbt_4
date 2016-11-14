@@ -9,5 +9,7 @@ Rails.application.routes.draw do
     resources :places
   end
 
-  resources :tours, only: :show
+  resources :tours, only: :show do
+    resources :reviews
+  end
 end

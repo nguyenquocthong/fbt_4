@@ -1,0 +1,6 @@
+<% if @status == Settings.booking.error %>
+  $element = '<%= j render "shared/error_message", object: @book %>';
+  $($element).dialog();
+<% else %>
+  $('#booking').html('<%= j render "shared/button_payment" %>');
+<% end %>

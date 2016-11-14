@@ -23,4 +23,7 @@ Rails.application.routes.draw do
   resources :comments do
     resources :likes, only: [:create, :destroy]
   end
+  resources :bookings, only: [:new, :create]
+  get "payments/new", to: "payments#new"
+  get "payments/update", to: "payments#update"
 end

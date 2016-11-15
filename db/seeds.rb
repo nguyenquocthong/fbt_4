@@ -7,12 +7,15 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 User.create!(name: "Admin", email: "admin@gmail.com",
   password: "123123", password_confirmation: "123123", role: 1)
+
 place = Place.create name: Faker::Name.name
 
-tour = Tour.create place_id: 1,
-  name: Faker::Name.name,
-  time_tour: Faker::Time.between(DateTime.now - 1, DateTime.now),
-  start_day: Faker::Date.between(2.days.ago, Date.today),
-  start_place: Faker::Address.city,
-  price: Faker::Number.number(6),
-  description: Faker::Hipster.paragraph, is_active: true
+10.times do
+  Tour.create place_id: 1,
+    name: Faker::Name.name,
+    time_tour: Faker::Time.between(DateTime.now - 1, DateTime.now),
+    start_day: Faker::Date.between(2.days.ago, Date.today),
+    start_place: Faker::Address.city,
+    price: Faker::Number.number(6),
+    description: Faker::Hipster.paragraph, is_active: true
+end

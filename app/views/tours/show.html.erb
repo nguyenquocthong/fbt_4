@@ -17,7 +17,7 @@
       </div>
       <div class="col-lg-6">
         <h4><%= t "tours.info" %></h4>
-        <dl class="dl-horizontal" >
+        <dl class="dl-horizontal">
           <dt><%= t "tours.durations" %></dt>
           <dd><%= @tour.time_tour %></dd>
           <dt><%= t "tours.price" %></dt>
@@ -30,3 +30,38 @@
     <%= link_to t("tours.booking_tour"), "#", remote: true %>
   </div>
 </section>
+
+<div class="row col-md-10 col-md-offset-1">
+
+  <div class="all_reviews">
+    <div class="row text-center">
+      <h2><%= t "view.titlereview" %></h2>
+    </div>
+    <% @reviews.each do |review| %>
+      <div class="one-review">
+        <%= review.user.email %> <i><%= t "view.say" %></i>
+
+        <div class="row text-center">
+          <h3><strong><i><%= review.title %></i></strong></h3>
+        </div>
+
+        <div class="custom-div-text">
+          <%= truncate review.content, length: Settings.max_char do %>
+            <%= link_to t("view.continute"), tour_review_path(@tour, review) %>
+          <% end %>
+        </div>
+
+        <% if can? :update, review %>
+          <%= link_to t("view.edit"), edit_tour_review_path(@tour, review),
+            class: "btn btn-success" %>
+        <% end %>
+
+        <% if can? :destroy, review %>
+          <%= link_to t("view.delete"), tour_review_path(@tour, review),
+            method: :delete, class: "btn btn-danger" %>
+        <% end %>
+
+      </div>
+    <% end %>
+  </div>
+</div>

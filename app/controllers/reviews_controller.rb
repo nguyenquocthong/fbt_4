@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :authenticate_user!
+  load_and_authorize_resource
   before_action :find_tour
 
   def new
@@ -15,6 +16,30 @@ class ReviewsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def show
+  end
+
+  def edit
+  end
+
+  def update
+    if @review.update_attributes review_params
+      flash[:success] = t "controller.update_success"
+      redirect_to @tour
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    if @review.destroy
+      flash[:success] = t "controller.destroy_success"
+    else
+      flash[:danger] = t "controller.destroy_fail"
+    end
+    redirect_to @tour
   end
 
   private

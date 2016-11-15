@@ -3,6 +3,8 @@
     <div class="row">
       <div class="col-lg-12">
         <h3><%= @tour.name %></h3>
+          <%= rating_for @tour, "quality", disable_after_rate: false, 
+            space: true, enable_half: true %>
         <p>
           <%= @tour.description %>
         </p>
@@ -25,9 +27,6 @@
         </dl>
       </div>
     </div>
-  </div>
-  <div>
-    <%= link_to t("tours.booking_tour"), "#", remote: true %>
   </div>
 </section>
 

@@ -2,3 +2,4 @@ bank_url: ENV["BANK_URL"]
 bank_token: ENV["BANK_TOKEN"]
 zezo: 0
 max_char: 200
+tour: 12

@@ -11,6 +11,7 @@ class CreateTours < ActiveRecord::Migration[5.0]
       t.text :schedule
       t.integer :is_active
       t.references :place
+      t.string :image
 
       t.timestamps
     end

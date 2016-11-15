@@ -10,12 +10,13 @@ User.create!(name: "Admin", email: "admin@gmail.com",
 
 place = Place.create name: Faker::Name.name
 
-10.times do
-  Tour.create place_id: 1,
+24.times do
+  tour = Tour.create place_id: 1,
     name: Faker::Name.name,
     time_tour: Faker::Time.between(DateTime.now - 1, DateTime.now),
     start_day: Faker::Date.between(2.days.ago, Date.today),
     start_place: Faker::Address.city,
     price: Faker::Number.number(6),
-    description: Faker::Hipster.paragraph, is_active: true
+    description: Faker::Hipster.paragraph, is_active: true,
+    image: "https://s14.postimg.org/f90o7orwh/du_lich_thai_lan.jpg"
 end

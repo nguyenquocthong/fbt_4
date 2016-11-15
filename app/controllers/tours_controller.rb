@@ -1,6 +1,10 @@
 class ToursController < ApplicationController
   load_and_authorize_resource
 
+  def index
+    @tours = Tour.page(params[:page]).per Settings.tour
+  end
+
   def show
     @reviews = @tour.reviews
   end

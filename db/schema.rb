@@ -134,6 +134,7 @@ ActiveRecord::Schema.define(version: 20161113124428) do
     t.text     "description", limit: 65535
     t.text     "schedule",    limit: 65535
     t.integer  "is_active"
+    t.string   "image"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
     t.index ["place_id"], name: "index_tours_on_place_id", using: :btree

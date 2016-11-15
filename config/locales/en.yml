@@ -52,8 +52,14 @@ en:
     news: "News"
     rate_fail: "Let's rate tour in your review!"
     say: "say: "
+    comment: "Comment"
+    review: "Review"
     continute: "Continute"
     delete: "Delete"
+    like_fail: "Like fail!"
+    unlike_fail: "Unlike fail"
+    let_login: "Let's login"
+    find_like_fail: "Don't find like to delete!"
   admin:
     categories:
       index:
@@ -73,23 +79,23 @@ en:
         content: "Update this category"
         submit_button: "Save"
     places:
-        index:
-          title: "All places"
-          edit: "Edit"
-          add_category: "Add new place"
-          place_id: "Category ID"
-          place_name: "Name"
-          place_action: "Action"
-          button_delete: "Delete"
-          confirm: "Are you delete ?"
-        new:
-          title: "New place"
-          content: "Add a new place"
-          submit_button: "Add new place"
-        edit:
-          title: "Edit places"
-          content: "Update this place"
-          submit_button: "Save"
+      index:
+        title: "All places"
+        edit: "Edit"
+        add_category: "Add new place"
+        place_id: "Category ID"
+        place_name: "Name"
+        place_action: "Action"
+        button_delete: "Delete"
+        confirm: "Are you delete ?"
+      new:
+        title: "New place"
+        content: "Add a new place"
+        submit_button: "Add new place"
+      edit:
+        title: "Edit places"
+        content: "Update this place"
+        submit_button: "Save"
 
   controllers:
     admin:
@@ -128,8 +134,10 @@ en:
     create_review_fail: "Create review fail"
     find_tour_fail: "Don't find tour"
     find_review_fail: "Don't find review"
+    find_comment_fail: "Don't find comment"
     update_success: "Update success"
     update_fail: "Update fail"
     destroy_success: "Destroy success"
     destroy_fail: "Destroy fail"
     permission: "You don't have permission"
+    error: "Find error"

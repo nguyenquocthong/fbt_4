@@ -12,9 +12,20 @@
 
 .one-review{
   border: solid 1px #3E3E3E;
+  padding: 20px;
+  margin-top: 10px;
+  background: #CEF2C4;
+  margin-bottom: 0;
+}
+.div-comment{
+  border: solid 1px #3E3E3E;
+  background: #f6f7f9;
   padding: 10px;
-  margin: 10px;
-  background: darkseagreen;
+}
+.user-name{
+  color: blue;
+  float: left;
+  margin-right: 10px;
 }
 
 .sidebar{

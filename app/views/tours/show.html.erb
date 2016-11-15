@@ -3,8 +3,8 @@
     <div class="row">
       <div class="col-lg-12">
         <h3><%= @tour.name %></h3>
-          <%= rating_for @tour, "quality", disable_after_rate: false, 
-            space: true, enable_half: true %>
+        <%= rating_for @tour, "quality", disable_after_rate: false,
+          space: true, enable_half: true %>
         <p>
           <%= @tour.description %>
         </p>
@@ -30,35 +30,74 @@
   </div>
 </section>
 
-<div class="row col-md-10 col-md-offset-1">
 
+<div class="row text-center">
+  <%= link_to t("view.create_review"), new_tour_review_path(@tour),
+    class: "btn btn-primary" %>
+</div>
+
+<div class="row col-md-10 col-md-offset-1">
   <div class="all_reviews">
+
     <div class="row text-center">
       <h2><%= t "view.titlereview" %></h2>
     </div>
+
     <% @reviews.each do |review| %>
-      <div class="one-review">
-        <%= review.user.email %> <i><%= t "view.say" %></i>
+      <div class="row">
+        <div class="one-review">
+          <div class="user-name">
+            <%= review.user.email %>
+          </div>
+          <i><%= t "view.say" %></i>
 
-        <div class="row text-center">
-          <h3><strong><i><%= review.title %></i></strong></h3>
-        </div>
+          <div class="text-center">
+            <h3><strong><i><%= review.title %></i></strong></h3>
+          </div>
 
-        <div class="custom-div-text">
-          <%= truncate review.content, length: Settings.max_char do %>
-            <%= link_to t("view.continute"), tour_review_path(@tour, review) %>
+          <div class="custom-div-text">
+            <%= truncate review.content, length: Settings.max_char do %>
+              <%= link_to t("view.continute"), tour_review_path(@tour, review) %>
+
+              <div class="like-div-<%= review.id %>-<%= t "view.review" %>">
+                <%= render "likes/form_like", target: review %>
+              </div>
+            <% end %>
+          </div>
+
+          <% if can? :update, review %>
+            <%= link_to t("view.edit"), edit_tour_review_path(@tour, review),
+              class: "btn btn-success" %>
+          <% end %>
+
+          <% if can? :destroy, review %>
+            <%= link_to t("view.delete"), tour_review_path(@tour, review),
+              method: :delete, class: "btn btn-danger" %>
           <% end %>
         </div>
 
-        <% if can? :update, review %>
-          <%= link_to t("view.edit"), edit_tour_review_path(@tour, review),
-            class: "btn btn-success" %>
-        <% end %>
-
-        <% if can? :destroy, review %>
-          <%= link_to t("view.delete"), tour_review_path(@tour, review),
-            method: :delete, class: "btn btn-danger" %>
-        <% end %>
+        <div class="div-comment">
+          <% review.comments.each do |comment| %>
+            <div class="row">
+              <div class="col-md-1">
+                <% if comment.user.gravatar.nil? %>
+                  <%= image_tag "logo.png" %>
+                <% else %>
+                  <%= image_tag comment.user.gravatar %>
+                <% end %>
+              </div>
+              <div class="col-md-11">
+                <div class="user-name">
+                  <%= comment.user.email %>
+                </div>
+                <%= comment.content %>
+                <div class="like-div-<%= comment.id %>-<%= t "view.comment" %>">
+                  <%= render "likes/form_like", target: comment %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
 
       </div>
     <% end %>

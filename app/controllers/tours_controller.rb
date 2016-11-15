@@ -7,6 +7,6 @@ class ToursController < ApplicationController
   end
 
   def show
-    @reviews = @tour.reviews
+    @reviews = @tour.reviews.order_desc
   end
 end

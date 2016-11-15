@@ -10,6 +10,8 @@ class User < ApplicationRecord
 
   enum role: [:user, :admin, :guess]
 
+  ratyrate_rater
+
   class << self
     def from_omniauth token
       data = token.info
@@ -23,5 +25,8 @@ class User < ApplicationRecord
       user
     end
   end
-  ratyrate_rater
+
+  def like? target
+    like = target.likes.find_by user_id: self.id
+  end
 end

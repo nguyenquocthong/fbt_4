@@ -1,0 +1,11 @@
+<div class="row">
+  <div class="container">
+    <div>
+      <h1><%= t ".list" %></h1>
+    </div>
+    <div>
+       <%= render @tours %>
+    </div>
+  </div>
+</div>
+<%= paginate @tours, theme: "twitter-bootstrap-3" %>

@@ -13,4 +13,6 @@ Rails.application.routes.draw do
   resources :tours, only: [:index, :show] do
     resources :reviews
   end
+  resources :places, only: :show
+  resources :categories, only: :show
 end

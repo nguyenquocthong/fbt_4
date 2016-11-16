@@ -9,9 +9,25 @@
 .all_reviews{
   border-top: solid 1px #2E2F30;
 }
+
 .one-review{
   border: solid 1px #3E3E3E;
   padding: 10px;
   margin: 10px;
   background: darkseagreen;
+}
+
+.sidebar{
+  background-color: #e3e9ea;
+  border-right: 1px solid #eee;  
+}
+
+.title{
+  background-color: #fdc64b;
+  line-height: 50px;
+  font-weight : bold;
+  color: #2E2E2E;
+  display: block;
+  text-align: center;
+  font-size: 20px;
 }

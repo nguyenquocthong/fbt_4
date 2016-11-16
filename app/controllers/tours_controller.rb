@@ -3,6 +3,7 @@ class ToursController < ApplicationController
 
   def index
     @tours = Tour.page(params[:page]).per Settings.tour
+    @supports = Supports::Tour.new
   end
 
   def show

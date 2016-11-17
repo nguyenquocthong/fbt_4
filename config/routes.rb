@@ -15,4 +15,12 @@ Rails.application.routes.draw do
   end
   resources :places, only: :show
   resources :categories, only: :show
+
+  resources :reviews do
+    resources :likes, only: [:create, :destroy]
+  end
+
+  resources :comments do
+    resources :likes, only: [:create, :destroy]
+  end
 end

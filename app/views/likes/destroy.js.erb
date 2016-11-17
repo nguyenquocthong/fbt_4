@@ -1,0 +1,2 @@
+$('.like-div-<%= @likeable.id %>-<%= @like.likeable_type %>').
+  html('<%= j render "likes/form_like", target: @likeable %>');

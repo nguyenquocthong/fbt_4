@@ -17,3 +17,6 @@
 //= require bootstrap-sprockets
 //= require jquery.raty
 //= require ratyrate
+//= require filterrific/filterrific-jquery
+//= require moment
+//= require daterangepicker

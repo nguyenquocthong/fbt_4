@@ -11,6 +11,29 @@ class Booking < ApplicationRecord
   validates :number_member, presence: true, format: {with: /\A[1-9]/i}
   validate :available_tour
 
+  filterrific(
+    default_filter_params: {
+      sorted_by: "created_at desc",
+      search_status: "all"
+    },
+    available_filters: [
+      :sorted_by,
+      :search_user,
+      :search_tour,
+      :search_status,
+      :date_range
+    ]
+  )
+
+  scope :search_user, -> name{joins(:user).where("name like ?", "%#{name}%")}
+  scope :search_tour, -> name{joins(:tour).where("name like ?", "%#{name}%")}
+  scope :sorted_by, -> sort_key {order sort_key}
+  scope :search_status, -> status{where(status: status) unless status == "all" }
+  scope :date_range, -> value{
+    dates = value.split " -> "
+    where("created_at >= ? AND created_at <= ?", dates[0], dates[1])
+  }
+
   def available_tour
     @tour = Tour.find_by_id tour_id
     if @tour
@@ -29,6 +52,17 @@ class Booking < ApplicationRecord
 
     def new_token
       SecureRandom.urlsafe_base64
+    end
+
+    def options_for_sorted_by
+      [
+        [I18n.t("admin.bookings.created_at_desc"), "created_at desc"],
+        [I18n.t("admin.bookings.created_at_desc"), "created_at asc"],
+      ]
+    end
+
+    def options_for_status
+      {all: :all}.merge(Booking.statuses).collect{|key, value| [key, key]}
     end
   end
 end

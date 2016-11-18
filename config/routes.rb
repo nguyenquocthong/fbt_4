@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :tours, only: [:index, :show] do
     resources :reviews
   end
+
   resources :places, only: :show
   resources :categories, only: :show
 
@@ -20,10 +21,12 @@ Rails.application.routes.draw do
     resources :likes, only: [:create, :destroy]
   end
 
-  resources :comments do
+  resources :comments, except: [:show, :new] do
     resources :likes, only: [:create, :destroy]
   end
   resources :bookings, only: [:new, :create]
+
   get "payments/new", to: "payments#new"
   get "payments/update", to: "payments#update"
+  get "/comments/new/(:parent_id)", to: "comments#new", as: :new_comment
 end

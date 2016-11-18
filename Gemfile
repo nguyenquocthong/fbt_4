@@ -19,6 +19,7 @@ gem "config"
 gem "omniauth-facebook"
 gem "ratyrate"
 gem "faker"
+gem "closure_tree"
 
 group :development, :test do
   gem "byebug", platform: :mri

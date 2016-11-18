@@ -99,6 +99,15 @@ en:
         title: "Edit places"
         content: "Update this place"
         submit_button: "Save"
+    bookings:
+      user: user
+      tour: tour
+      number_member: number member
+      total_money: total money
+      status: status
+      not_found: Not found
+      change: Change
+      change_success: Change success
 
   controllers:
     admin:
@@ -152,3 +161,30 @@ en:
     cannot_patment_now: Cannot payment now!
     comment_error: "Comment error"
     destroy_comment_fail: "Delete comment fail"
+  header:
+    categories_manager: Categories Manager
+    places_manager: Places Manager
+    bookings_manaer: Booking Manager
+    action: Action
+    view: View
+  number:
+    currency:
+      format:
+        format: "%u%n"
+        unit: "$"
+        separator: '.'
+        delimiter: ','
+        precision: 0
+  view_booking:
+    user: User
+    tour: Tour
+    tour_price: Tour price
+    number_member: Number member
+    discount_money: Discount Money
+    booking_price: Booking price
+    place: Place
+    start_place: Start place
+    time_tour: Start place
+    start_day: Start day
+    schedule: Schedule
+    status: Status

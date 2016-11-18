@@ -8,6 +8,8 @@ class CreateBookings < ActiveRecord::Migration[5.0]
       t.references :tour, foreign_key: true
       t.references :discount
       t.string :payment_token
+      t.integer :status, default: 0
+      t.integer :discount_money
 
       t.timestamps
     end

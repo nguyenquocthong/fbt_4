@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :categories
     resources :places
+    resources :bookings, only: [:index, :show, :update]
   end
 
   resources :tours, only: [:index, :show] do

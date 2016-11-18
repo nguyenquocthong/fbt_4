@@ -40,8 +40,10 @@ ActiveRecord::Schema.define(version: 20161116142436) do
     t.integer  "tour_id"
     t.integer  "discount_id"
     t.string   "payment_token"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.integer  "status",         default: 0
+    t.integer  "discount_money"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.index ["discount_id"], name: "index_bookings_on_discount_id", using: :btree
     t.index ["tour_id"], name: "index_bookings_on_tour_id", using: :btree
     t.index ["user_id"], name: "index_bookings_on_user_id", using: :btree
@@ -61,7 +63,6 @@ ActiveRecord::Schema.define(version: 20161116142436) do
 
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "content"
-    t.integer  "parent_id"
     t.integer  "review_id"
     t.integer  "user_id"
     t.datetime "created_at", null: false
@@ -192,6 +193,7 @@ ActiveRecord::Schema.define(version: 20161116142436) do
   add_foreign_key "bank_accounts", "users"
   add_foreign_key "bookings", "tours"
   add_foreign_key "bookings", "users"
+  add_foreign_key "comments", "reviews"
   add_foreign_key "comments", "users"
   add_foreign_key "discounts", "tours"
   add_foreign_key "likes", "users"

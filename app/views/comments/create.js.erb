@@ -1,0 +1,6 @@
+$('.div-comment-form-<%= @review.id %>').
+  html('<%= j render "comments/form",review: @review, parent_id: nil,
+  btn_comment: t("view.comment") %>');
+$('.div-comments-form-<%= @review.id %>').
+  html('<%= j render "comments/comments", comment: @comments, parent_id: nil,
+  review: @review %>');

@@ -1,0 +1,55 @@
+<div>
+  <div class="col-md-2 text-right img-comment">
+    <% if comment.user.gravatar.nil? %>
+      <%= image_tag "logo.png", alt: t("view.comment"),
+        class: "img-circle size_image" %>
+    <% else %>
+      <%= image_tag comment.user.gravatar, alt: t("view.comment") %>
+    <% end %>
+  </div>
+
+  <div class="col-md-10 div-one-comments">
+    <p class="text-muted">
+      <strong><%= link_to comment.user.email, "#" %></strong>: &nbsp
+      <b class="div-edit-comment<%= comment.id %>">
+        <%= comment.content %>
+      </b>
+
+    <div class="like-div-<%= comment.id %>-<%= t "view.comment" %> div-inline-float-left">
+      <%= render "likes/form_like", target: comment %>
+    </div>
+
+    <div class="div-inline-float-right">
+      <% if can? :destroy, comment %>
+        <%= link_to t("view.delete"), review_comment_path(review, comment),
+          method: :delete, data: {confirm: t("view.data")}, remote: true,
+          class: "btn btn-link" %>
+      <% end %>
+    </div>
+    <div class="div-inline-float-right">
+      <% if can? :update, comment %>
+        <%= link_to t("view.edit"), edit_review_comment_path(review, comment),
+          remote: true, class: "btn btn-link" %>
+      <% end %>
+    </div>
+
+    <% if user_signed_in? %>
+      <% if comment.root? %>
+        <div class="div-subcomment-form-<%= comment.id %> div-inline-float-left">
+          <%= link_to t("view.reply"), new_review_comment_path(review.id, comment.id),
+            remote: true, class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    <% else %>
+      <div class="div-subcomment-form-<%= comment.id %> div-inline-float-left">
+        <%= link_to t("view.reply"), new_review_comment_path(review.id, comment.id),
+          class: "btn btn-primary" %>
+      </div>
+    <% end %>
+
+    <div class="div-inline-float-left">
+      <%= comment.root? ? t("view.comment") : t("view.reply") %>
+      <i><%= time_ago_in_words comment.created_at %></i>
+    </div>
+  </div>
+</div>

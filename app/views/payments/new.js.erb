@@ -1,0 +1,11 @@
+<% case @status %>
+<% when Settings.payment.booking_not_found %>
+  alert('<%= t "tours.booking_not_found" %>');
+<% when Settings.payment.system_error %>
+  alert('<%= t "tours.system_error" %>');
+<% else %>
+  url = '<%= Settings.payment_bank_url %>';
+  token = '<%= @book.public_token %>';
+  window.open(url + '?token=' + token, '_blank',
+    'toolbar=yes,scrollbars=yes,resizable=no,top=300,left=500,width=400,height=400');
+<% end %>

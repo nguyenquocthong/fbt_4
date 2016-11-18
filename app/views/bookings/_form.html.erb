@@ -1,0 +1,6 @@
+<%= form_for @book, remote: true do |f| %>
+  <%= f.hidden_field :tour_id, value: @tour.id %>
+  <%= f.label @tour.name %>
+  <%= f.number_field :number_member, min: 1 %>
+  <%= f.submit t("tours.submit") %>
+<% end %>

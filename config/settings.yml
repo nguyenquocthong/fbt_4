@@ -1,5 +1,12 @@
-bank_url: ENV["BANK_URL"]
-bank_token: ENV["BANK_TOKEN"]
+bank_token: <%= ENV["BANK_TOKEN"] %>
+payment_bank_url: <%= ENV["PAYMENT_BANK_URL"] %>
+order_bank_url: <%= ENV["ORDER_BANK_URL"] %>
 zezo: 0
 max_char: 200
 tour: 12
+booking:
+  error: Sorry! system error
+payment:
+  not_sign_in: 1
+  booking_not_found: 3
+  system_error: 4

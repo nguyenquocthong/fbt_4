@@ -28,6 +28,10 @@
       </div>
     </div>
   </div>
+  <div id="booking" >
+    <%= link_to t("tours.booking_tour"), new_booking_path(id: @tour.id),
+      remote: true if user_signed_in? %>
+  </div>
 </section>
 
 

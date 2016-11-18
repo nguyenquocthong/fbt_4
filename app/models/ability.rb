@@ -17,6 +17,8 @@ class Ability
       can :destroy, Like do |like|
         like.user == user
       end
+      can [:new, :create], Booking
+      can :manage, :payment
     end
   end
 end

@@ -123,9 +123,13 @@ en:
     price: Price
     payment: Payment
     must_sign_in: You must signin
+    booking_not_found: Booking not found
+    system_error: Sorry! system error
     booking_tour: Booking tour
     index:
       list: "All Tour"
+    invalid_tour: Invalid tour
+    submit: Submit
   controller:
     create_review_success: "Create review success"
     create_review_fail: "Create review fail"
@@ -141,3 +145,5 @@ en:
     destroy_fail: "Destroy fail"
     permission: "You don't have permission"
     error: "Find error"
+    booking_tour: Booking tour
+    cannot_patment_now: Cannot payment now!

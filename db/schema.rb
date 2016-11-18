@@ -33,14 +33,15 @@ ActiveRecord::Schema.define(version: 20161113124428) do
   end
 
   create_table "bookings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "totalmoney"
+    t.integer  "total_money"
     t.boolean  "is_pay"
-    t.integer  "numbermember"
+    t.integer  "number_member"
     t.integer  "user_id"
     t.integer  "tour_id"
     t.integer  "discount_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.string   "payment_token"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.index ["discount_id"], name: "index_bookings_on_discount_id", using: :btree
     t.index ["tour_id"], name: "index_bookings_on_tour_id", using: :btree
     t.index ["user_id"], name: "index_bookings_on_user_id", using: :btree
@@ -127,7 +128,7 @@ ActiveRecord::Schema.define(version: 20161113124428) do
   create_table "tours", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.integer  "place_id"
-    t.date     "time_tour"
+    t.integer  "time_tour"
     t.date     "start_day"
     t.string   "start_place"
     t.integer  "price"

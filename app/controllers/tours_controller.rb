@@ -8,5 +8,6 @@ class ToursController < ApplicationController
 
   def show
     @reviews = @tour.reviews.order_desc
+    @comment = current_user.comments.build
   end
 end

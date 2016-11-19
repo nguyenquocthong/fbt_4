@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161113124428) do
+ActiveRecord::Schema.define(version: 20161116142436) do
 
   create_table "activities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "target_id"
@@ -53,8 +53,15 @@ ActiveRecord::Schema.define(version: 20161113124428) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "comment_hierarchies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "ancestor_id",   null: false
+    t.integer "descendant_id", null: false
+    t.integer "generations",   null: false
+  end
+
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "content"
+    t.integer  "parent_id"
     t.integer  "review_id"
     t.integer  "user_id"
     t.datetime "created_at", null: false
@@ -185,7 +192,6 @@ ActiveRecord::Schema.define(version: 20161113124428) do
   add_foreign_key "bank_accounts", "users"
   add_foreign_key "bookings", "tours"
   add_foreign_key "bookings", "users"
-  add_foreign_key "comments", "reviews"
   add_foreign_key "comments", "users"
   add_foreign_key "discounts", "tours"
   add_foreign_key "likes", "users"

@@ -60,6 +60,9 @@ en:
     unlike_fail: "Unlike fail"
     let_login: "Let's login"
     find_like_fail: "Don't find like to delete!"
+    reply: "Reply"
+    placeholdercomment: "Write comment..."
+    editcomment: "Edit comment"
   admin:
     categories:
       index:
@@ -147,3 +150,5 @@ en:
     error: "Find error"
     booking_tour: Booking tour
     cannot_patment_now: Cannot payment now!
+    comment_error: "Comment error"
+    destroy_comment_fail: "Delete comment fail"

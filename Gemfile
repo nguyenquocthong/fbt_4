@@ -21,12 +21,12 @@ gem "ratyrate"
 gem "faker"
 gem "closure_tree"
 gem "filterrific"
-gem "will_paginate", "3.1.0"
 gem "momentjs-rails"
 gem "bootstrap-daterangepicker-rails"
 gem "acts-as-taggable-on", "~> 4.0"
 gem "ckeditor"
 gem "paperclip"
+gem "ransack"
 
 group :development, :test do
   gem "byebug", platform: :mri

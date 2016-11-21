@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row">
+    <h2 class="text-center"><%= t "view.tour" %></h2>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th><%= t "view.stt" %></th>
+          <th><%= t "view.name_tour" %></th>
+          <th><%= t "view.price_title" %></th>
+          <th><%= t "view.time_tour" %></th>
+          <th><%= t "view.start_date" %></th>
+          <th><%= t "view.active" %></th>
+          <th><%= t "view.action" %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @tours.each_with_index do |tour, i| %>
+          <tr>
+            <th><%= i + 1 + Settings.tour*((params[:page] ||= 1).to_i - 1) %></th>
+            <th><%= link_to tour.name, admin_tour_path(tour) %></th>
+            <th><%= t "view.price", price: number_to_currency(tour.price) %></th>
+            <th><%= tour.time_tour %> &nbsp <%= t "view.day" %></th>
+            <th><%= l tour.start_day, format: :short %></th>
+            <% if tour.publish? %>
+              <th><%= t "view.active_type.publish" %></th>
+            <% else %>
+              <th><%= t "view.active_type.expire" %></th>
+            <% end %>
+            <th>
+              <%= link_to t("view.edit"), edit_admin_tour_path(tour) %>
+              <%= link_to t("view.delete"), admin_tour_path(tour),
+                method: :delete, data: {confirm: t("view.confirm")} %>
+            </th>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-offset-5">
+    <%= paginate @tours, theme: "twitter-bootstrap-3" %>
+  </div>
+</div>

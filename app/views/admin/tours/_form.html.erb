@@ -1,0 +1,95 @@
+<%= form_for [:admin, @tour], html: {class: "form-horizontal",
+  multipart: true} do |f| %>
+
+  <%= render "shared/error_message", object: f.object %>
+
+  <div class="form-group">
+    <%= f.label :name, class: "control-label col-md-2" %>
+    <div class="col-md-8">
+      <%= f.text_field :name, class: "form-control",
+        placeholder: t("view.placeholder_name") %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :description, class: "control-label col-md-2" %>
+    <div class="col-md-8">
+      <%= f.text_area :description, class: "form-control",
+        placeholder: t("view.placeholder_description") %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label t("view.category"), class: "control-label col-md-2" %>
+    <div class="col-md-8">
+      <%= f.text_field :tag_list, class: "form-control category-tag",
+        placeholder: t("view.choose_category") %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :schedule, class: "control-label col-md-2" %>
+    <div class="col-md-8">
+      <%= f.cktext_area :schedule, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :start_day, class: "control-label col-md-2" %>
+    <div class="col-md-8">
+      <%= f.datetime_select :start_day,
+        default: Time.now, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :time_tour, class: "control-label col-md-2" %>
+    <div class="col-md-8">
+      <div class="input-group">
+        <%= f.number_field :time_tour, min: 1, max: 30,
+          placeholder: t("view.placeholder_time_tour"),
+          class: "form-control" %>
+        <div class="input-group-addon"><%= t "view.day" %></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :price, class: "control-label col-md-2" %>
+    <div class="col-md-8">
+      <div class="input-group">
+        <%= f.text_field :price, class: "form-control",
+          placeholder: t("view.placeholder_price") %>
+        <div class="input-group-addon"><%= t "view.unitprice" %></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :is_active, class: "control-label col-md-2" %>
+    <div class="col-md-8">
+      <%= f.select :is_active,
+        options_for_select(@admin_supports.load_active_types), {},
+        class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :place_id, class: "control-label col-md-2" %>
+    <div class="col-md-8">
+      <%= f.select :place_id, @admin_supports.load_places, {},
+        class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :image, class: "control-label col-md-2" %>
+    <div class="col-md-8">
+      <%= f.file_field :image %>
+    </div>
+  </div>
+
+  <div class="col-md-offset-4">
+    <%= f.submit button_submit, class: "btn btn-primary" %>
+  </div>
+<% end %>

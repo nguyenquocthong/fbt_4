@@ -2,7 +2,20 @@ class Admin::BookingsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @bookings = Booking.all
+    @filterrific = initialize_filterrific(
+      Booking,
+      params[:filterrific],
+      select_options: {
+        sorted_by: Booking.options_for_sorted_by,
+        status: Booking.options_for_status,
+      }
+    ) or return
+    @bookings = @filterrific.find.page params[:page]
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def show
@@ -16,6 +29,14 @@ class Admin::BookingsController < ApplicationController
   end
 
   private
+  def find_booking
+    @book = Booking.find_by id: params[:id]
+    unless @book
+      flash[:danger] = t "admin.bookings.not_found"
+      redirect_to root_path
+    end
+  end
+
   def booking_params
     params.require(:booking).permit :status
   end

@@ -1,28 +1,36 @@
 <div class="container">
-  <table class="table table-bordered">
-    <thead>
-    <tr>
-      <th><%= t "admin.bookings.user" %></th>
-      <th><%= t "admin.bookings.tour" %></th>
-      <th><%= t "admin.bookings.number_member" %></th>
-      <th><%= t "admin.bookings.total_money" %></th>
-      <th><%= t "admin.bookings.status" %></th>
-      <th><%= t "admin.bookings.action" %></th>
-    </tr>
-    </thead>
-    <tbody>
-      <% @bookings.each do |book| %>
-        <tr>
-          <td><%= book.user.email %></td>
-          <td><%= link_to book.tour.name, book.tour %></td>
-          <td><%= book.number_member %></td>
-          <td><%= number_to_currency(book.total_money) %></td>
-          <td>
-            <span class="label label-default" ><%= book.status %></span>
-          </td>
-          <td><%= link_to t("admin.bookings.view"), [:admin, book] %></td>
-        </tr>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <%= form_for_filterrific @filterrific, remote: true do |f| %>
+        <div>
+          <%= t "admin.bookings.search" %>
+          <label for="search_query" >
+            <%= t "admin.bookings.user" %>
+          </label>
+          <%= f.text_field :search_user, class: "filterrific-periodically-observed" %>
+          <label for="search_query" >
+            <%= t "admin.bookings.tour" %>
+          </label>
+          <%= f.text_field :search_tour, class: "filterrific-periodically-observed" %>
+        </div>
+        <div>
+          <%= t "admin.bookings.sorted_by" %>
+          <%= f.select :sorted_by, @filterrific.select_options[:sorted_by] %>
+        </div>
+        <div>
+          <%= t "admin.bookings.search_status" %>
+          <%= f.select :search_status, @filterrific.select_options[:status] %>
+        </div>
+        <div>
+          <%= t "admin.bookings.date_range" %>
+          <%= f.text_field :date_range, class: "filterrific-periodically-observed", for: "lg" %>
+        </div>
+        <div>
+          <%= link_to t("admin.bookings.reset_filter"), reset_filterrific_url %>
+        </div>
       <% end %>
-    </tbody>
-  </table>
+    </div>
+    <%= render_filterrific_spinner %>
+  </div>
+  <%= render partial: "admin/bookings/list", locals: {bookings: @bookings} %>
 </div>

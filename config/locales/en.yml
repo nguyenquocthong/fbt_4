@@ -108,6 +108,16 @@ en:
       not_found: Not found
       change: Change
       change_success: Change success
+      search: Search
+      view: View
+      action: Action
+      sorted_by: Sorted by
+      reset_filter: Reset filter
+      created_at_desc: Created date (newest first)
+      created_at_asc: Created date (oldest first)
+      search_status: Status
+      date_range: Date range
+      created_date: Created date
 
   controllers:
     admin:

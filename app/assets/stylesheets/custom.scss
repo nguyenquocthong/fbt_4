@@ -1,5 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css";
 
 .custom-div-text{
   word-wrap: break-word;
@@ -43,7 +44,6 @@
   font-size: 20px;
 }
 
-/* comment */
 .div-one-comments{
   padding: 10px;
   border-bottom: 1px solid black;
@@ -74,7 +74,28 @@
 .div-reply{
   float: none;
 }
-.size_image{
+.size_image {
   width: 80px;
   height: 80px;
+
+  .add-filter {
+    text-align: right;
+    vertical-align: top;
+  }
+}
+
+#filterrific_date_range{
+  background: #fff;
+  cursor: pointer;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  width: 100%
+}
+
+.calendar.left{
+  float: left;
+}
+
+.calendar.right{
+  float: left;
 }

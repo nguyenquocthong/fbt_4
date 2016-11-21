@@ -1,0 +1,28 @@
+<div class="container">
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+      <th><%= t "admin.bookings.user" %></th>
+      <th><%= t "admin.bookings.tour" %></th>
+      <th><%= t "admin.bookings.number_member" %></th>
+      <th><%= t "admin.bookings.total_money" %></th>
+      <th><%= t "admin.bookings.status" %></th>
+      <th><%= t "admin.bookings.action" %></th>
+    </tr>
+    </thead>
+    <tbody>
+      <% @bookings.each do |book| %>
+        <tr>
+          <td><%= book.user.email %></td>
+          <td><%= link_to book.tour.name, book.tour %></td>
+          <td><%= book.number_member %></td>
+          <td><%= number_to_currency(book.total_money) %></td>
+          <td>
+            <span class="label label-default" ><%= book.status %></span>
+          </td>
+          <td><%= link_to t("admin.bookings.view"), [:admin, book] %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

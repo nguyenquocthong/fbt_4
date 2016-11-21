@@ -4,6 +4,8 @@ class Booking < ApplicationRecord
   belongs_to :discount
   belongs_to :tour
   belongs_to :user
+
+  enum status: [:waiting_pay, :processing, :disapproached, :approached]
   
   validates :tour_id, presence: true, format: {with: /\A[1-9]/i}
   validates :number_member, presence: true, format: {with: /\A[1-9]/i}

@@ -22,11 +22,15 @@
           <% if user_signed_in? %>
             <% if can? :manage, :all %>
               <li>
-                <%= link_to t("views.header.categories_manager"),
+                <%= link_to t("header.bookings_manaer"),
+                  admin_bookings_path %>
+              </li>
+              <li>
+                <%= link_to t("header.categories_manager"),
                   admin_categories_path %>
               </li>
               <li>
-                <%= link_to t("views.header.places_manager"),
+                <%= link_to t("header.places_manager"),
                   admin_places_path %>
               </li>
             <% end %>

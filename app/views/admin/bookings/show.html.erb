@@ -1,0 +1,64 @@
+<div class="container col-md-12">
+  <div class="panel panel-primary">
+    <div class="panel-body">
+      <div class="list-group">
+        <div class="col-md-3" >
+          <ul class="list-group">
+            <% t(:view_booking).each do |element| %>
+              <li class="list-group-item ">
+                <%= element[1] %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+        <div class="col-md-9">
+          <ul class="list-group">
+            <li class="list-group-item ">
+              <%= @booking.user.email %>
+            </li>
+            <li class="list-group-item ">
+              <%= @booking.tour.name %>
+            </li>
+            <li class="list-group-item ">
+              <%= number_to_currency @booking.tour.price %>
+            </li>
+            <li class="list-group-item ">
+              <%= @booking.number_member %>
+            </li>
+            <li class="list-group-item ">
+              <%= number_to_currency @booking.discount_money %>
+            </li>
+            <li class="list-group-item ">
+              <%= number_to_currency @booking.total_money %>
+            </li>
+            <li class="list-group-item ">
+              <%= @booking.tour.place.name %>
+            </li>
+            <li class="list-group-item ">
+              <%= @booking.tour.start_place %>
+            </li>
+            <li class="list-group-item ">
+              <%= @booking.tour.time_tour %>
+            </li>
+            <li class="list-group-item ">
+              <%= @booking.tour.start_day %>
+            </li>
+            <li class="list-group-item ">
+              <%= @booking.tour.schedule %>
+            </li>
+            <li class="list-group-item ">
+              <% if is_change_status @booking  %>
+                <%= form_for [:admin, @booking] do |f| %>
+                  <%= f.select :status, status_select_params(@booking) %>
+                  <%= f.submit t("admin.bookings.change") %>
+                <% end %>
+              <% else %>
+                <span class="label label-primary"><%= @booking.status %></span>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

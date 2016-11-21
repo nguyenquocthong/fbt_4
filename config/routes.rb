@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount Ckeditor::Engine => "/ckeditor"
   post "/rate" => "rater#create", as: :rate
   root "static_pages#home"
   get "/pages/:page" => "static_pages#show", as: :page
@@ -32,4 +33,5 @@ Rails.application.routes.draw do
   get "payments/update", to: "payments#update"
   get ":review_id/comments/new/(:parent_id)", to: "comments#new",
     as: :new_review_comment
+  get "tags/:tag", to: "tours#index", as: :tag
 end

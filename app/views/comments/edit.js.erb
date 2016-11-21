@@ -1,0 +1,3 @@
+$('.div-edit-comment<%= @comment.id %>').
+  html('<%= j render "comments/form", review: @review, parent_id: nil,
+  btn_comment: t("view.editcomment") %>');

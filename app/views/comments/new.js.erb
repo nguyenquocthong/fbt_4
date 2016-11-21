@@ -1,0 +1,9 @@
+<% if @supports %>
+  $('.div-subcomment-form-<%= @supports.load_commented.id %>').
+    html('<%= j render "comments/form", review: @review,
+    review_id: @supports.load_review.id, parent_id: @supports.load_commented.id,
+    btn_comment: t("view.reply") %>');
+<% else %>
+  location.reload();
+  alert('<%= t "controller.find_comment_fail" %>');
+<% end %>

@@ -10,3 +10,4 @@ payment:
   not_sign_in: 1
   booking_not_found: 3
   system_error: 4
+limitdepth: 2

@@ -1,0 +1,24 @@
+<% if user_signed_in? %>
+  <%= form_for [review, @comment], remote: true,
+    html: {class: "form-horizontal"} do |f| %>
+
+    <%= f.hidden_field :review_id, value: review.id %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.hidden_field :parent_id, value: parent_id %>
+    <div class="form-group">
+      <div class="col-md-6">
+        <%= f.text_field :content, class: "form-control",
+          placeholder: t("view.placeholdercomment") %>
+      </div>
+      <div class="col-md-2">
+        <%= f.submit btn_comment, class: "btn btn-primary" %>
+      </div>
+      <div class="col-md-2">
+        <%= link_to t("view.cancel"), :back, class: "btn btn-link" %>
+      </div>
+    </div>
+  <% end %>
+<% else %>
+  <%= link_to t("view.comment"), new_user_session_path,
+    class: "btn btn-primary" %>
+<% end %>

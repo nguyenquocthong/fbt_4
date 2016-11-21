@@ -63,6 +63,9 @@ en:
     reply: "Reply"
     placeholdercomment: "Write comment..."
     editcomment: "Edit comment"
+    data: "You sure delete?"
+    logo: "Image"
+    cancel: "Cancel"
   admin:
     categories:
       index:
@@ -171,6 +174,8 @@ en:
     cannot_patment_now: Cannot payment now!
     comment_error: "Comment error"
     destroy_comment_fail: "Delete comment fail"
+    find_comment_fail: "Find comment fail"
+    login: "You must login to reply comment"
   header:
     categories_manager: Categories Manager
     places_manager: Places Manager

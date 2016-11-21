@@ -20,6 +20,7 @@ Rails.application.routes.draw do
 
   resources :reviews do
     resources :likes, only: [:create, :destroy]
+    resources :comments, except: [:show, :new]
   end
 
   resources :comments, except: [:show, :new] do
@@ -29,5 +30,6 @@ Rails.application.routes.draw do
 
   get "payments/new", to: "payments#new"
   get "payments/update", to: "payments#update"
-  get "/comments/new/(:parent_id)", to: "comments#new", as: :new_comment
+  get ":review_id/comments/new/(:parent_id)", to: "comments#new",
+    as: :new_review_comment
 end

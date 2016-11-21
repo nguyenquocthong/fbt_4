@@ -8,7 +8,8 @@ class Ability
       can :manage, Category
       can :manage, Place
     else
-      can [:read], Tour
+      can :read, :all
+
       can [:new, :create], Review
       can [:edit, :update, :destroy], Review do |review|
         review.user == user

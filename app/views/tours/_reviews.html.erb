@@ -1,0 +1,45 @@
+<% @reviews.each do |review| %>
+  <div class="row">
+    <div class="one-review">
+      <div class="user-name">
+        <%= review.user.email %>
+      </div>
+      <i><%= t "view.say" %></i>
+
+      <div class="text-center">
+        <h3><strong><i><%= review.title %></i></strong></h3>
+      </div>
+
+      <div class="custom-div-text">
+        <%= truncate review.content, length: Settings.max_char do %>
+          <%= link_to t("view.continute"), tour_review_path(@tour, review) %>
+
+          <div class="like-div-<%= review.id %>-<%= t "view.review" %>">
+            <%= render "likes/form_like", target: review %>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="div-comment-form-<%= review.id %>">
+        <%= render "comments/form", review: review, parent_id: nil,
+          btn_comment: t("view.comment")%>
+      </div>
+
+      <% if can? :update, review %>
+        <%= link_to t("view.edit"), edit_tour_review_path(@tour, review),
+          class: "btn btn-success" %>
+      <% end %>
+
+      <% if can? :destroy, review %>
+        <%= link_to t("view.delete"), tour_review_path(@tour, review),
+          method: :delete, class: "btn btn-danger" %>
+      <% end %>
+    </div>
+
+    <div class="div-comments-form-<%= review.id %>">
+      <%= render "comments/comments",
+        comment: review.comments.hash_tree(limit_depth: Settings.limitdepth),
+        review: review %>
+    </div>
+  </div>
+<% end %>

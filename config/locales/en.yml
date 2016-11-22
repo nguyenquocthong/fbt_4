@@ -176,6 +176,8 @@ en:
       category: "Category"
     invalid_tour: Invalid tour
     submit: Submit
+    search: "Search tour or place tour"
+    submit_search: "Search"
   controller:
     create_review_success: "Create review success"
     create_review_fail: "Create review fail"

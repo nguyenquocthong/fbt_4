@@ -9,7 +9,6 @@ en:
   signup: Signup
   login: Login
   logout: Logout
-
   home:
     box1-text: Let's enjoy the wonders of the nature together!
     box2-text: Enjoy outdoor activities? Join us!
@@ -66,6 +65,27 @@ en:
     data: "You sure delete?"
     logo: "Image"
     cancel: "Cancel"
+    active_type:
+      publish: "Publish"
+      expire: "Expire"
+    create_tour: "Create tour"
+    choose_category: "Write category..."
+    category: "Category: "
+    place_detail: "Place detail: "
+    durations: "Durations"
+    start_date: "Start day: "
+    end_date: "End day: "
+    tour: "Tour"
+    price: "%{price} $"
+    label_price: "Price: "
+    stt: "STT"
+    name_tour: "Name tour"
+    price_title: "Price"
+    place_detail_title: "Place detail"
+    active: "Status active"
+    action: "Action"
+    confirm: "Are you delete ?"
+
   admin:
     categories:
       index:
@@ -145,7 +165,6 @@ en:
     schedule: Tour schedule
     info: Tour infomation
     duration: duration
-    price: Price
     payment: Payment
     must_sign_in: You must signin
     booking_not_found: Booking not found
@@ -153,6 +172,8 @@ en:
     booking_tour: Booking tour
     index:
       list: "All Tour"
+      place: "Place"
+      category: "Category"
     invalid_tour: Invalid tour
     submit: Submit
   controller:
@@ -203,3 +224,15 @@ en:
     start_day: Start day
     schedule: Schedule
     status: Status
+    create_tour: "Create tour success"
+    edit_tour: "Edit tour success"
+    delete_success: "Delete success!"
+    delete_fail: "Delete fail!"
+  number:
+    currency:
+      format:
+        unit: ""
+        delimiter: ','
+        separator: '.'
+        precision: 0
+        format: '%u%n'

@@ -11,3 +11,5 @@ payment:
   booking_not_found: 3
   system_error: 4
 limitdepth: 2
+image_tour: 1200x300
+default_image_tour: "fire.png"

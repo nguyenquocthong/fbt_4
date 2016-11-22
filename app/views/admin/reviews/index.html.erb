@@ -1,0 +1,30 @@
+<h2 class="text-center"><%= t ".all_reviews" %></h2>
+<div id="filterrific_results">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th><%= t ".stt" %></th>
+        <th><%= t ".user" %></th>
+        <th><%= t ".tour" %></th>
+        <th><%= t ".created_date" %></th>
+        <th><%= t ".action" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @reviews.each_with_index do |review, i| %>
+        <tr>
+          <th><%= i %></th>
+          <td><%= review.user.name %></td>
+          <td><%= link_to review.tour.name %></td>
+          <td><%= review.created_at %></td>
+          <td>
+            <%= link_to t(".delete"), admin_review_path(review),
+              method: :delete, data: {confirm: t("view.confirm")} %>
+            <%= link_to t(".view"), admin_review_path(review) %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= paginate @reviews, theme: "twitter-bootstrap-3" %>
+</div>

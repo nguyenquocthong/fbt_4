@@ -10,8 +10,8 @@ Rails.application.routes.draw do
     resources :categories
     resources :places
     resources :bookings, only: [:index, :show, :update]
+    resources :reviews, only: [:index, :show, :destroy]
   end
-
   resources :tours, only: [:index, :show] do
     resources :reviews
   end

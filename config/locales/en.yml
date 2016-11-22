@@ -141,6 +141,13 @@ en:
       search_status: Status
       date_range: Date range
       created_date: Created date
+    reviews:
+      user: "User review"
+      tour: "Tour"
+      created_date: "Created Date"
+      action: "Action"
+      all_reviews: "All review users"
+      stt: "STT"
 
   controllers:
     admin:

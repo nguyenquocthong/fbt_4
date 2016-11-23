@@ -98,6 +98,9 @@ en:
     rate: "Rate"
     let_login_to_rate: "Let's login to rate tour!"
     tag: "Category: "
+    error: "error"
+    success: "Success!"
+    author: "Author"
   admin:
     categories:
       index:

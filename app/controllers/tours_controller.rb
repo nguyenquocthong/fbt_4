@@ -3,8 +3,11 @@ class ToursController < ApplicationController
 
   def index
     @search = Tour.search params[:q]
-    @tours = @search.result.joins(:place).page(params[:page]).
-      per Settings.tour
+    @tours = if params[:tag]
+      Tour.tagged_with params[:tag]
+    else
+      @search.result.joins(:place).page(params[:page]).per Settings.tour
+    end
     @supports = Supports::Tour.new
   end
 

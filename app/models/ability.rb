@@ -7,6 +7,7 @@ class Ability
       can :manage, :all
       can :manage, Category
       can :manage, Place
+      can :manage, Tour
     else
       can :read, :all
 

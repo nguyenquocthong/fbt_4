@@ -7,17 +7,16 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks#create"}
 
   namespace :admin do
-    resources :categories
     resources :places
     resources :bookings, only: [:index, :show, :update]
     resources :reviews, only: [:index, :show, :destroy]
+    resources :tours
   end
   resources :tours, only: [:index, :show] do
     resources :reviews
   end
 
   resources :places, only: :show
-  resources :categories, only: :show
 
   resources :reviews do
     resources :likes, only: [:create, :destroy]
@@ -33,5 +32,5 @@ Rails.application.routes.draw do
   get "payments/update", to: "payments#update"
   get ":review_id/comments/new/(:parent_id)", to: "comments#new",
     as: :new_review_comment
-  get "tags/:tag", to: "tours#index", as: :tag
+  get "categories/:tag", to: "tours#index", as: :tag
 end

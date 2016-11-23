@@ -69,10 +69,11 @@ en:
       publish: "Publish"
       expire: "Expire"
     create_tour: "Create tour"
+    edit_tour: "Edit tour"
     choose_category: "Write category..."
     category: "Category: "
     place_detail: "Place detail: "
-    durations: "Durations"
+    durations: "Durations: "
     start_date: "Start day: "
     end_date: "End day: "
     tour: "Tour"
@@ -81,11 +82,22 @@ en:
     stt: "STT"
     name_tour: "Name tour"
     price_title: "Price"
-    place_detail_title: "Place detail"
+    time_tour: "Time tour"
     active: "Status active"
     action: "Action"
     confirm: "Are you delete ?"
-
+    day: "Day"
+    placeholder_time_tour: "Let's add Time tour (unit day)"
+    placeholder_name: "Example: Visit to Viet Nam"
+    placeholder_price: "999"
+    unitprice: "$"
+    placeholder_description: "Brief description of the trip...."
+    description: "Desciption"
+    tour_expire: "Close trip! Tour will be opened as soon as possible"
+    tour_publish: "Tour is publish"
+    rate: "Rate"
+    let_login_to_rate: "Let's login to rate tour!"
+    tag: "Category: "
   admin:
     categories:
       index:
@@ -206,12 +218,17 @@ en:
     destroy_comment_fail: "Delete comment fail"
     find_comment_fail: "Find comment fail"
     login: "You must login to reply comment"
+    create_tour: "Create tour success"
+    edit_tour: "Edit tour success"
+    delete_success: "Delete success!"
+    delete_fail: "Delete fail!"
   header:
-    categories_manager: Categories Manager
-    places_manager: Places Manager
-    bookings_manaer: Booking Manager
+    categories_manager: Categories
+    places_manager: Places
+    bookings_manaer: Booking
     action: Action
     view: View
+    tour_manager: "Tours"
   number:
     currency:
       format:
@@ -233,10 +250,8 @@ en:
     start_day: Start day
     schedule: Schedule
     status: Status
-    create_tour: "Create tour success"
-    edit_tour: "Edit tour success"
-    delete_success: "Delete success!"
-    delete_fail: "Delete fail!"
+  model:
+    year: "You must add time present or future!"
   number:
     currency:
       format:
@@ -245,3 +260,6 @@ en:
         separator: '.'
         precision: 0
         format: '%u%n'
+  time:
+    formats:
+      short: "%d-%m-%G (%H hour %M minute)"

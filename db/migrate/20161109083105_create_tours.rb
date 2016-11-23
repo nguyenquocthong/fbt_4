@@ -9,6 +9,7 @@ class CreateTours < ActiveRecord::Migration[5.0]
       t.attachment :image
       t.integer :is_active, default: 0
       t.integer :price
+      t.float :rate_avg
 
       t.references :place
       t.references :discount

@@ -27,6 +27,7 @@ gem "acts-as-taggable-on", "~> 4.0"
 gem "ckeditor"
 gem "paperclip"
 gem "ransack"
+gem "whenever", require: false
 
 group :development, :test do
   gem "byebug", platform: :mri

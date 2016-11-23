@@ -185,12 +185,12 @@ ActiveRecord::Schema.define(version: 20161119161818) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.integer  "is_active", default: 0
+    t.integer  "is_active",                        default: 0
     t.integer  "price"
-    t.float    "rate_avg", limit: 24
+    t.float    "rate_avg",           limit: 24
     t.integer  "place_id"
     t.integer  "discount_id"
-    t.datetime "created_at", null: false
+    t.datetime "created_at",                                   null: false
     t.datetime "updated_at",                                   null: false
     t.index ["discount_id"], name: "index_tours_on_discount_id", using: :btree
     t.index ["place_id"], name: "index_tours_on_place_id", using: :btree

@@ -1,43 +1,41 @@
-<div class="container">
+<div id="wrappers">
+  <div class="clr"><hr /></div>
+  <div class="join"><%= t "signin.titles" %></div>
+  <a class="twitter"><%= t "signin.twitter" %></a>
+  <%= link_to t("signin.facebook"), user_facebook_omniauth_authorize_path,
+    class: "facebook" %>
+  <a class="google"><%= t "signin.google" %></a>
+  <div class="login-options"><%= t "signin.or" %></div>
   <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-      <h2><%= t "view.login" %></h2>
-      <%= form_for resource, as: resource_name, url: session_path(resource_name),
+    <div class="col-md-9 col-md-offset-2">
+      <%= form_for resource, as: resource_name,
+        url: session_path(resource_name),
         html: {class: "form-horizontal"} do |f| %>
-
-        <div class="form-group">
-          <%= f.label :email, class: "control-label col-md-2" %>
-          <div class="col-md-8">
+          <div class="form-group">
+            <%= f.label :email, class: "control-label col-md-2" %>
+            <div class="col-md-8">
             <%= f.email_field :email, autofocus: true, class: "form-control" %>
+            </div>
           </div>
-        </div>
 
-        <div class="form-group">
-          <%= f.label :password, class: "control-label col-md-2" %>
-          <div class="col-md-8">
-            <%= f.password_field :password, class: "form-control" %>
+          <div class="form-group">
+            <%= f.label :password, class: "control-label col-md-2" %>
+            <div class="col-md-8">
+              <%= f.password_field :password, class: "form-control" %>
+            </div>
           </div>
-        </div>
-
-        <% if devise_mapping.rememberable? %>
-          <div class="col-md-offset-2">
-            <%= f.label :remember_me, class: "checkbox-inline" do %>
-              <%= f.check_box :remember_me %>
-              <span><%= t "view.rememberme" %></span>
+          <% if devise_mapping.rememberable? %>
+            <div class="col-md-6">
+              <%= f.label :remember_me, class: "checkbox-inline" do %>
+                <%= f.check_box :remember_me %>
+                <span><%= t "view.rememberme" %></span>
+              <% end %>
+            </div>
           <% end %>
+          <div class="col-md-1">
+            <%= f.submit t("view.login"), class: "btn btn-success" %>
           </div>
         <% end %>
-
-        <div class="col-md-offset-3">
-          <%= f.submit t("view.login"), class: "btn btn-success" %>
-        </div>
-      <% end %>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-offset-3">
-      <%= render "devise/shared/links" %>
     </div>
   </div>
 </div>

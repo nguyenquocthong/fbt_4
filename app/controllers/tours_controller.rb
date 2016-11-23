@@ -12,7 +12,7 @@ class ToursController < ApplicationController
   end
 
   def show
-    @reviews = @tour.reviews.order_desc
+    @reviews = @tour.reviews.order_desc.page(params[:page]).per Settings.review
     if user_signed_in?
       @comment = current_user.comments.build
     end

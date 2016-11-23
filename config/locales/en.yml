@@ -46,9 +46,10 @@ en:
     contentreview: "Content review"
     edit_review: "Edit review"
     create_review: "Create review"
-    place: "Place "
-    food: "Food"
-    news: "News"
+    rate_type:
+      place: "Place"
+      food: "Food"
+      news: "News"
     rate_fail: "Let's rate tour in your review!"
     say: "say: "
     comment: "Comment"
@@ -95,7 +96,7 @@ en:
     description: "Desciption"
     tour_expire: "Close trip! Tour will be opened as soon as possible"
     tour_publish: "Tour is publish"
-    rate: "Rate"
+    you_rate: "Yours rate"
     let_login_to_rate: "Let's login to rate tour!"
     tag: "Category: "
     error: "error"
@@ -107,6 +108,9 @@ en:
     activity_booking_update: "change status a booking tour"
     activity_review_create: "add review to"
     activity_review_update: "  update a review to "
+    rate_tour_avg: "%{avg}/5 (%{vote} vote)"
+    rate: "Rate tour: "
+    each_hour_rate_avg: "Update each 6 hour"
   admin:
     categories:
       index:

@@ -1,7 +1,11 @@
 <div class="container">
-  <div class="row">
-    <div class="row col-md-6 col-md-offset-3">
-      <%= render "reviews/form", btn_title: t("view.create_review") %>
-    </div>
+  <div class="row text-center">
+    <h3><%= t "view.create_review" %></h3>
+  </div>
+
+  <%= render "tours/form_review_rate", user: current_user, disable: true, readonly: false %>
+
+  <div class="row col-md-6 col-md-offset-3">
+    <%= render "reviews/form", btn_title: t("view.create_review") %>
   </div>
 </div>

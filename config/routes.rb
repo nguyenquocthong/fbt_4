@@ -27,6 +27,7 @@ Rails.application.routes.draw do
     resources :likes, only: [:create, :destroy]
   end
   resources :bookings, only: [:new, :create]
+  resources :users, only: [:show]
 
   get "payments/new", to: "payments#new"
   get "payments/update", to: "payments#update"

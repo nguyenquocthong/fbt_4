@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
 
   enum role: [:user, :admin, :guess]
+  validates :name, presence: true, length: {maximum: 50}
 
   ratyrate_rater
 

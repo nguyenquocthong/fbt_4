@@ -28,6 +28,7 @@ gem "ckeditor"
 gem "paperclip"
 gem "ransack"
 gem "whenever", require: false
+gem "public_activity"
 
 group :development, :test do
   gem "byebug", platform: :mri

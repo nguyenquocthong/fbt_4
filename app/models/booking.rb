@@ -1,5 +1,10 @@
 class Booking < ApplicationRecord
+  include PublicActivity::Common
+
   attr_accessor :public_token
+
+  has_many :activities, as: :trackable,
+    class_name: PublicActivity::Activity.name, dependent: :destroy
 
   belongs_to :discount
   belongs_to :tour

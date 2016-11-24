@@ -1,3 +1,3 @@
-class Activity < ApplicationRecord
-  belongs_to :user
+class Activity < PublicActivity::Activity
+  scope :order_desc, -> {order created_at: :desc}
 end

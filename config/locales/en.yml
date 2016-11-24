@@ -101,6 +101,12 @@ en:
     error: "error"
     success: "Success!"
     author: "Author"
+    admin: "Admin"
+    all_activity: "All activities"
+    activity_booking_create: "booking tour"
+    activity_booking_update: "change status a booking tour"
+    activity_review_create: "add review to"
+    activity_review_update: "  update a review to "
   admin:
     categories:
       index:

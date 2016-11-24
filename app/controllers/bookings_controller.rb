@@ -8,7 +8,11 @@ class BookingsController < ApplicationController
 
   def create
     @book = current_user.bookings.new booking_params
-    @status = Settings.booking.error unless @book.save
+    if @book.save
+      @book.create_activity :create, owner: current_user
+    else
+      @status = Settings.booking.error
+    end
   end
 
   private

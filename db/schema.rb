@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161124012055) do
+ActiveRecord::Schema.define(version: 20161127131321) do
 
   create_table "activities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "trackable_type"
@@ -107,6 +107,18 @@ ActiveRecord::Schema.define(version: 20161124012055) do
     t.index ["tour_id"], name: "index_discounts_on_tour_id", using: :btree
   end
 
+  create_table "friendly_id_slugs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "slug",                      null: false
+    t.integer  "sluggable_id",              null: false
+    t.string   "sluggable_type", limit: 50
+    t.string   "scope"
+    t.datetime "created_at"
+    t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, using: :btree
+    t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
+    t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
+    t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
+  end
+
   create_table "likes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
     t.string   "likeable_type"
@@ -119,8 +131,10 @@ ActiveRecord::Schema.define(version: 20161124012055) do
 
   create_table "places", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
+    t.string   "slug"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["slug"], name: "index_places_on_slug", using: :btree
   end
 
   create_table "rates", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -195,12 +209,14 @@ ActiveRecord::Schema.define(version: 20161124012055) do
     t.integer  "is_active",                        default: 0
     t.integer  "price"
     t.float    "rate_avg",           limit: 24
+    t.string   "slug"
     t.integer  "place_id"
     t.integer  "discount_id"
     t.datetime "created_at",                                   null: false
     t.datetime "updated_at",                                   null: false
     t.index ["discount_id"], name: "index_tours_on_discount_id", using: :btree
     t.index ["place_id"], name: "index_tours_on_place_id", using: :btree
+    t.index ["slug"], name: "index_tours_on_slug", using: :btree
   end
 
   create_table "tours_categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

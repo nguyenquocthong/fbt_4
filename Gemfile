@@ -29,6 +29,7 @@ gem "paperclip"
 gem "ransack"
 gem "whenever", require: false
 gem "public_activity"
+gem "friendly_id","~> 5.1.0"
 
 group :development, :test do
   gem "byebug", platform: :mri

@@ -1,4 +1,6 @@
 class Tour < ApplicationRecord
+  extend FriendlyId
+  friendly_id :name, use: [:slugged, :finders]
   acts_as_taggable
   ratyrate_rateable "quality"
 
@@ -32,5 +34,10 @@ class Tour < ApplicationRecord
     if self.start_day < DateTime.now
       errors.add :base, I18n.t("model.year")
     end
+  end
+
+  private
+  def should_generate_new_friendly_id?
+    slug.blank? || name_changed?
   end
 end

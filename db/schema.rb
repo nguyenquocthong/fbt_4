@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161127141519) do
+ActiveRecord::Schema.define(version: 20161127131321) do
 
   create_table "activities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "trackable_type"
@@ -104,12 +104,6 @@ ActiveRecord::Schema.define(version: 20161127141519) do
     t.index ["tour_rule_id"], name: "index_conditions_on_tour_rule_id", using: :btree
   end
 
-  create_table "configurations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "type_rule"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "discounts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "percent"
     t.datetime "start_date"
@@ -146,8 +140,10 @@ ActiveRecord::Schema.define(version: 20161127141519) do
 
   create_table "places", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
+    t.string   "slug"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["slug"], name: "index_places_on_slug", using: :btree
   end
 
   create_table "rates", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -209,17 +205,6 @@ ActiveRecord::Schema.define(version: 20161127141519) do
     t.index ["name"], name: "index_tags_on_name", unique: true, using: :btree
   end
 
-  create_table "tour_rule_prices", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "tour_rule_id"
-    t.integer  "tour_id"
-    t.date     "day"
-    t.integer  "price"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.index ["tour_id"], name: "index_tour_rule_prices_on_tour_id", using: :btree
-    t.index ["tour_rule_id"], name: "index_tour_rule_prices_on_tour_rule_id", using: :btree
-  end
-
   create_table "tour_rules", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.integer  "amount"
@@ -243,12 +228,14 @@ ActiveRecord::Schema.define(version: 20161127141519) do
     t.integer  "is_active",                        default: 0
     t.integer  "price"
     t.float    "rate_avg",           limit: 24
+    t.string   "slug"
     t.integer  "place_id"
     t.integer  "discount_id"
     t.datetime "created_at",                                   null: false
     t.datetime "updated_at",                                   null: false
     t.index ["discount_id"], name: "index_tours_on_discount_id", using: :btree
     t.index ["place_id"], name: "index_tours_on_place_id", using: :btree
+    t.index ["slug"], name: "index_tours_on_slug", using: :btree
   end
 
   create_table "tours_categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -273,6 +260,7 @@ ActiveRecord::Schema.define(version: 20161127141519) do
     t.string   "name"
     t.string   "gravatar"
     t.integer  "role"
+    t.datetime "deleted_at"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "email",                  default: "", null: false
@@ -287,6 +275,7 @@ ActiveRecord::Schema.define(version: 20161127141519) do
     t.string   "last_sign_in_ip"
     t.string   "provider"
     t.string   "uid"
+    t.index ["deleted_at"], name: "index_users_on_deleted_at", using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end

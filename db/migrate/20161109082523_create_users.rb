@@ -4,8 +4,10 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.string :name
       t.string :gravatar
       t.integer :role
+      t.datetime :deleted_at
 
       t.timestamps
     end
+    add_index :users, :deleted_at
   end
 end

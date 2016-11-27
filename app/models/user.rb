@@ -1,7 +1,6 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :rememberable, :validatable,
     :omniauthable, omniauth_providers: [:facebook]
-  has_many :activities, dependent: :destroy
   has_many :bookings, dependent: :destroy
   has_many :bank_accounts, dependent: :destroy
   has_many :reviews, dependent: :destroy
@@ -12,7 +11,8 @@ class User < ApplicationRecord
   validates :name, presence: true, length: {maximum: 50}
 
   ratyrate_rater
-
+  acts_as_paranoid
+  
   class << self
     def from_omniauth token
       data = token.info

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :reviews, only: [:index, :show, :destroy]
     resources :tours
     resources :tour_rules, except: :show
+    resources :users, only: [:index, :destroy]
   end
   resources :tours, only: [:index, :show] do
     resources :reviews

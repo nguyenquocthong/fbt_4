@@ -257,6 +257,8 @@ en:
     profile: "Profile"
     edit: "Change info"
     sign_out: "Log out"
+    reviews_manager: "Reviews"
+    users_manager: "Users"
   number:
     currency:
       format:

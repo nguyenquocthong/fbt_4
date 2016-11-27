@@ -34,14 +34,18 @@
                 <%= link_to t("header.places_manager"),
                   admin_places_path %>
               </li>
+              <li>
+                <%= link_to t("header.users_manager"),
+                  admin_users_path %>
+              </li>
             <% else %>
               <ul class="nav navbar-nav">
                 <li>
                   <%= link_to t(:tour), tours_path %>
                 </li>
-
                 <li>
-                  <%= link_to t("controller.booking"), user_orders_path(current_user) %>
+                  <%= link_to t("controller.booking"),
+                    user_orders_path(current_user) %>
                 </li>
               </ul>
             <% end %>

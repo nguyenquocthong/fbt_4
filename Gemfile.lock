@@ -95,6 +95,8 @@ GEM
     filterrific (2.1.2)
     font-awesome-rails (4.7.0.0)
       railties (>= 3.2, < 5.1)
+    friendly_id (5.1.0)
+      activerecord (>= 4.0.0)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     hashie (3.4.6)
@@ -264,6 +266,7 @@ DEPENDENCIES
   faker
   filterrific
   font-awesome-rails
+  friendly_id (~> 5.1.0)
   jbuilder (~> 2.5)
   jquery-rails
   kaminari

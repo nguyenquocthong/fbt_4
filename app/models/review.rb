@@ -14,4 +14,5 @@ class Review < ApplicationRecord
   validates :content, presence: true, length: {minimum:200, maximum: 1000}
 
   scope :order_desc, -> {order created_at: :desc}
+  
 end

@@ -10,11 +10,13 @@ class CreateTours < ActiveRecord::Migration[5.0]
       t.integer :is_active, default: 0
       t.integer :price
       t.float :rate_avg
+      t.string :slug
 
       t.references :place
       t.references :discount
 
       t.timestamps
     end
+    add_index :tours, :slug
   end
 end

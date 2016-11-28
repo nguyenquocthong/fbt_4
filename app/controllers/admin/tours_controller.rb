@@ -1,5 +1,5 @@
 class Admin::ToursController < ApplicationController
-  load_and_authorize_resource
+  load_and_authorize_resource find_by: :slug
 
   before_action :authenticate_user!
   before_action :load_supports, except: [:index, :show, :destroy]

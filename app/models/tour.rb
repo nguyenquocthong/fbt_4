@@ -2,7 +2,7 @@ class Tour < ApplicationRecord
   extend FriendlyId
   friendly_id :name, use: [:slugged, :finders]
   acts_as_taggable
-  ratyrate_rateable "quality"
+  ratyrate_rateable :quality, :food, :news, :place
 
   has_attached_file :image, styles:{medium: "300x300>", thumb: "100x100>"},
     default_url: Settings.default_image_tour

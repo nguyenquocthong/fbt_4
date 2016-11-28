@@ -1,16 +1,19 @@
 <% @reviews.each do |review| %>
   <div class="row">
     <div class="one-review">
-      <div class="user-name">
-        <%= review.user.email %>
+      <div class="row user-name">
+        <%= review.user.name %>
+        <i><%= t "view.say" %></i>
       </div>
-      <i><%= t "view.say" %></i>
 
-      <div class="text-center">
+      <div class="row text-center">
         <h3><strong><i><%= review.title %></i></strong></h3>
       </div>
 
-      <div class="custom-div-text">
+      <%= render "tours/form_review_rate",
+        user: review.user, disable: false, readonly: true %>
+
+      <div class="row custom-div-text">
         <%= truncate review.content, length: Settings.max_char do %>
           <%= link_to t("view.continute"), tour_review_path(@tour, review) %>
 
@@ -20,9 +23,9 @@
         <% end %>
       </div>
 
-      <div class="div-comment-form-<%= review.id %>">
+      <div class="row div-comment-form-<%= review.id %>">
         <%= render "comments/form", review: review, parent_id: nil,
-          btn_comment: t("view.comment")%>
+          btn_comment: t("view.comment") %>
       </div>
 
       <% if can? :update, review %>
@@ -36,10 +39,13 @@
       <% end %>
     </div>
 
-    <div class="div-comments-form-<%= review.id %>">
+    <div class="row div-comments-form-<%= review.id %>">
       <%= render "comments/comments",
         comment: review.comments.hash_tree(limit_depth: Settings.limitdepth),
         review: review %>
     </div>
   </div>
 <% end %>
+<div class="col-md-offset-5">
+  <%= paginate @reviews, theme: "twitter-bootstrap-3" %>
+</div>

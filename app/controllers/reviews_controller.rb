@@ -20,6 +20,11 @@ class ReviewsController < ApplicationController
   end
 
   def show
+    @comment = if user_signed_in?
+      current_user.comments.build
+    else
+      Comment.new
+    end
   end
 
   def edit

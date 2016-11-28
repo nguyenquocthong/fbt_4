@@ -1,5 +1,11 @@
 <div class="row">
   <div class="col-md-8 col-md-offset-2">
+
+    <%= link_to t("view.back"), tour_path(@tour), class: "btn btn-primary" %>
+
+    <%= render "tours/form_review_rate",
+      user: @review.user, disable: false, readonly: true %>
+
     <div class="row">
       <label><%= t "view.titlereview" %></label>
       <%= @review.title %>
@@ -8,11 +14,40 @@
       <label><%= t "view.reviewby" %></label>
       <%= @review.user.name %>
     </div>
+
     <div class="row">
       <label><%= t "view.contentreview" %></label>
       <div class="custom-div-text">
         <%= @review.content %>
       </div>
     </div>
+
+    <div class="row">
+      <div class="like-div-<%= @review.id %>-<%= t "view.review" %>">
+        <%= render "likes/form_like", target: @review %>
+      </div>
+    </div>
+
+    <div class="row div-comment-form-<%= @review.id %>">
+      <%= render "comments/form", review: @review, parent_id: nil,
+        btn_comment: t("view.comment") %>
+    </div>
+
+    <% if can? :update, @review %>
+      <%= link_to t("view.edit"), edit_tour_review_path(@tour, @review),
+        class: "btn btn-success" %>
+    <% end %>
+
+    <% if can? :destroy, @review %>
+      <%= link_to t("view.delete"), tour_review_path(@tour, @review),
+        method: :delete, class: "btn btn-danger" %>
+    <% end %>
+
+    <div class="row div-comments-form-<%= @review.id %>">
+      <%= render "comments/comments",
+        comment: @review.comments.hash_tree(limit_depth: Settings.limitdepth),
+        review: @review %>
+    </div>
+
   </div>
 </div>

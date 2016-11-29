@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
   load_and_authorize_resource :tour, find_by: :slug
-  load_and_authorize_resource find_by: :slug
+  load_and_authorize_resource 
 
   before_action :authenticate_user!
 

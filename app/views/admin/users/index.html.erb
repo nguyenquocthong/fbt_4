@@ -1,0 +1,29 @@
+<h2 class="text-center"><%= t ".all_user" %></h2>
+<div id="filterrific_results">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th><%= t ".stt" %></th>
+        <th><%= t ".name" %></th>
+        <th><%= t ".email" %></th>
+        <th><%= t ".created_date" %></th>
+        <th><%= t ".action" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each_with_index do |user, i| %>
+        <tr>
+          <th><%= i + 1 + Settings.tour*((params[:page] ||= 1).to_i - 1) %></th>
+          <td><%= link_to user.name, user %></td>
+          <td><%= user.email %></td>
+          <td><%= user.created_at %></td>
+          <td><%= link_to t("delete"), admin_user_path(user),
+            class: "btn btn-danger", method: :delete,
+            data: {confirm: t("data.confirm")} %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= paginate @users, theme: "twitter-bootstrap-3" %>
+</div>

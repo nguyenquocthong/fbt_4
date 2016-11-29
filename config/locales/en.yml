@@ -121,6 +121,8 @@ en:
     ordered: "has a order tour:"
     memeber: "x%{member}(person)"
     day_order: "Day order: "
+    see_more: "See more"
+    all_category: "All Category"
   admin:
     categories:
       index:
@@ -215,7 +217,7 @@ en:
     index:
       list: "All Tour"
       place: "Place"
-      category: "Category"
+      category: "Top category popular"
     invalid_tour: Invalid tour
     submit: Submit
     search: "Search tour or place tour"

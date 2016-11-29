@@ -16,7 +16,8 @@ Rails.application.routes.draw do
     resources :reviews
   end
 
-  resources :places, only: :show
+  resources :places, only: [:show, :index]
+  resources :categories, only: [:index]
 
   resources :reviews do
     resources :likes, only: [:create, :destroy]

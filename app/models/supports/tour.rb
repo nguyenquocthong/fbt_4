@@ -4,6 +4,6 @@ class Supports::Tour
   end
 
   def categories
-    @categories = Category.all
+    @categories = Category.order_count.limit Settings.limit_category
   end
 end

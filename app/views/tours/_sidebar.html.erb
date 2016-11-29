@@ -1,0 +1,12 @@
+<div class="col-md-3 col-sm-3 sidebar">
+  <div class="title"><%= t "tours.index.category" %></div>
+  <div>
+    <% @supports.categories.each do |category| %>
+      <%= link_to tag_path(category.name),
+        class: "tag category" do %>
+        <%= category.name %>(<%= category.taggings_count %>)
+      <% end %>
+    <% end %>
+    <%= link_to t("view.see_more"), categories_path %>
+  </div>
+</div>

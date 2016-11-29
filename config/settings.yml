@@ -3,7 +3,7 @@ payment_bank_url: <%= ENV["PAYMENT_BANK_URL"] %>
 order_bank_url: <%= ENV["ORDER_BANK_URL"] %>
 zezo: 0
 max_char: 200
-tour: 12
+tour: 10
 review: 10
 booking:
   error: Sorry! system error
@@ -18,3 +18,4 @@ default_image_tour: "fire.png"
 rate_min: 0
 rate_max: 5
 roud_rate: 1
+limit_category: 10

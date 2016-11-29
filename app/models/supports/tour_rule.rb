@@ -4,7 +4,7 @@ class Supports::TourRule
   end
 
   def conditions
-    @conditions ||= TourRule.condition_types.collect {|key, value|
+    @conditions ||= Condition.condition_types.collect {|key, value|
       [I18n.t("tour_rule.#{key}"), key]}
   end
 end

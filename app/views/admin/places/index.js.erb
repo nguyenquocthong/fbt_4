@@ -1,0 +1,35 @@
+<% page = params[:page] %>
+$list = '<%= j render "admin/shared/list_place" %>';
+if(typeof $list_dialog.$dialog<%= page %> != 'undefined'){
+  dialog_element($list_dialog.$dialog<%= page %>)
+}
+else {
+  $list_dialog.$dialog<%= page %> = dialog_element($list);
+}
+function dialog_element(element){
+  return $(element).dialog(
+    {
+      width: 1000,
+      height: 600,
+      modal: true,
+      resizable: false,
+      draggable: false,
+      buttons: {
+        'Ok': function () {
+          $value = '';
+          $('input[name=check_rule]:checked').each(function () {
+            $value += $(this).val() + ',';
+          });
+          $name = '<%= name_for_value @time %>';
+          $('input[name="' + $name + '"]').attr('value', $value);
+          $list_dialog = [];
+          $('.dialog').remove();
+        }
+      },
+      close: function () {
+        $list_dialog = [];
+        $('.dialog').remove();
+      }
+    }
+  );
+}

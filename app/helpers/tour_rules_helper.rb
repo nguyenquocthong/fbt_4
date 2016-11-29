@@ -17,11 +17,11 @@ module TourRulesHelper
   end
 
   def name_for_type time = nil
-    "tour_rule[conditions_attributes][#{time||"$time"}][typed]"
+    "tour_rule[conditions_attributes][#{time||"$time"}][condition_type]"
   end
 
   def name_for_value time = nil
-    "tour_rule[conditions_attributes][#{time||"$time"}][valued]"
+    "tour_rule[conditions_attributes][#{time||"$time"}][condition_value]"
   end
 
   def name_for_destroy time = nil

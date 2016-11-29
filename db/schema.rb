@@ -97,8 +97,8 @@ ActiveRecord::Schema.define(version: 20161127131321) do
 
   create_table "conditions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "tour_rule_id"
-    t.string   "typed"
-    t.string   "valued"
+    t.string   "condition_type"
+    t.string   "condition_value"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.index ["tour_rule_id"], name: "index_conditions_on_tour_rule_id", using: :btree

@@ -14,7 +14,7 @@ class Admin::TourRulesController < ApplicationController
       format.html
       format.json{render json:
         {
-          conditions: TourRule.condition_types.collect {|key, value|
+          conditions: Condition.condition_types.collect {|key, value|
             [t("tour_rule.#{key}"), key]}
         }.to_json
       }
@@ -56,8 +56,8 @@ class Admin::TourRulesController < ApplicationController
 
   private
   def tour_rule_params
-    params.require(:tour_rule).permit :name, :amount, :type_cal, :start_day,
-      :end_day, conditions_attributes: [:id, :typed, :valued, :_destroy]
+    params.require(:tour_rule).permit :name, :amount, :type_cal, :start_day, :end_day,
+      conditions_attributes: [:id, :condition_type, :condition_value, :_destroy]
   end
 
   def support_tour_rule

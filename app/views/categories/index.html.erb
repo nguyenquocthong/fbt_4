@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="row text-center">
+    <h3><%= t "view.all_category" %></h3>
+  </div>
+  <div class="row">
+    <% @categories.each do |category| %>
+      <%= link_to category.name, tag_path(category.name),
+        class: "btn btn-link" %>,
+    <% end %>
+  </div>
+</div>

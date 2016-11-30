@@ -1,6 +1,38 @@
-<%= link_to tour do %>
-  <div class="col-md-3 bottom-grid">
-    <%= image_tag tour.image %>
-    <h4><%= tour.name %></h4>
-  </div>
-<% end %>
+<div class="col-md-9 col-sm-9">
+  <h3><strong><%= link_to t("tours.index.list"), tours_path %></strong></h3>
+  <% @tours.each do |tour| %>
+    <div class="row div-a-tour">
+      <div class="col-md-3">
+        <% if tour.image? %>
+          <%= link_to image_tag(tour.image,
+            class: "center-block"), tour_path(tour) %>
+        <% else %>
+          <%= link_to image_tag("logo.png",
+            class: "center-block"), tour_path(tour) %>
+        <% end %>
+        <div class="text-center">
+          <%= link_to tour.name, tour %>
+        </div>
+        <div class="text-center div-price">
+          <%= t "view.price_title" %>
+          <%= t "view.price", price: number_to_currency(tour.price) %>
+        </div>
+      </div>
+      <div class="col-md-9">
+        <div class="custom-div-text">
+          <%= tour.description %>
+        </div>
+        <div>
+          <%= t "view.tag" %>
+          <% tour.tag_list.each do |tag| %>
+            <%= link_to tag, tag_path(tag), class: "tag" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <% unless params[:tag].present? %>
+    <%= paginate @tours, theme: "twitter-bootstrap-3" %>
+  <% end %>
+</div>

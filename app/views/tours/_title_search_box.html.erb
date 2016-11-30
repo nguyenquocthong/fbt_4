@@ -1,9 +1,15 @@
 <% content_for :search do %>
   <div>
-    <%= search_form_for @search do |f| %>
-    <%= f.text_field :name_or_place_name_cont,
-      class: "radius-left expand", placeholder: t("tours.search") %>
-    <%= f.submit t("tours.submit_search"), class: "radius-right button" %>
+    <%= search_form_for @search, html: {class: "form-horizontal"} do |f| %>
+      <div class="form-group col-md-8">
+        <div class="col-md-10">
+          <%= f.text_field :name_or_place_name_cont,
+            class: "radius-left expand form-control", placeholder: t("tours.search") %>
+        </div>
+        <div class="col-md-2">
+          <%= f.submit t("tours.submit_search"), class: "radius-right button btn-success form-control" %>
+        </div>
+      </div>
     </div>
   <% end %>
 <% end %>

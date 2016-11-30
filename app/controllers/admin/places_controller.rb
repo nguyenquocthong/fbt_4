@@ -1,5 +1,5 @@
 class Admin::PlacesController < ApplicationController
-  load_and_authorize_resource
+  load_and_authorize_resource find_by: :slug
 
   def index
     @places = Place.all.order(created_at: :desc).page params[:page]

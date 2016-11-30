@@ -80,6 +80,7 @@ en:
     tour: "Tour"
     price: "%{price} $"
     label_price: "Price: "
+    new_tour: "Add New Tour"
     stt: "STT"
     name_tour: "Name tour"
     price_title: "Price"
@@ -262,6 +263,7 @@ en:
     sign_out: "Log out"
     reviews_manager: "Reviews"
     users_manager: "Users"
+    search: "Search..."
   number:
     currency:
       format:

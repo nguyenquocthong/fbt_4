@@ -38,4 +38,5 @@ Rails.application.routes.draw do
   get ":review_id/comments/new/(:parent_id)", to: "comments#new",
     as: :new_review_comment
   get "categories/:tag", to: "tours#index", as: :tag
+  get "search(/:search)", to: "searches#index", as: :search
 end

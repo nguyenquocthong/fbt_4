@@ -1,6 +1,10 @@
 <div class="container">
   <div class="row">
     <h2 class="text-center"><%= t "view.tour" %></h2>
+    <div class="row text-center">
+      <%= link_to t("view.create_tour"), new_admin_tour_path,
+        class: "btn btn-primary" %>
+    </div>
     <table class="table table-bordered">
       <thead>
         <tr>

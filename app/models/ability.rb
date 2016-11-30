@@ -8,10 +8,10 @@ class Ability
       can :manage, Category
       can :manage, Place
       can :manage, Tour
-    else
-      can :read, :all
+    elsif user.user?
+      can :read, Tour
 
-      can [:new, :create], Review
+      can [:read, :new, :create], Review
       can [:edit, :update, :destroy], Review do |review|
         review.user == user
       end
@@ -20,17 +20,20 @@ class Ability
         like.user == user
       end
 
-      can [:new, :create], Booking
+      can [:read, :new, :create], Booking
       can [:destroy], Booking do |booking|
         booking.user == user && booking.waiting_pay?
       end
 
       can :manage, :payment
 
-      can [:new, :create], Comment
+      can [:read, :new, :create], Comment
       can [:edit, :update, :destroy], Comment do |comment|
         comment.user == user
       end
+    else
+      can :read, Tour
+      can :read, Review
     end
   end
 end

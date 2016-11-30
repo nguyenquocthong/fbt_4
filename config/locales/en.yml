@@ -98,6 +98,7 @@ en:
     tour_publish: "Tour is publish"
     you_rate: "Yours rate"
     let_login_to_rate: "Let's login to rate tour!"
+    let_login_to_booking: "Let's login to BOOKING tour!"
     tag: "Category: "
     error: "error"
     success: "Success!"

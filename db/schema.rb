@@ -99,8 +99,8 @@ ActiveRecord::Schema.define(version: 20161127131321) do
     t.integer  "tour_rule_id"
     t.string   "condition_type"
     t.string   "condition_value"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.index ["tour_rule_id"], name: "index_conditions_on_tour_rule_id", using: :btree
   end
 
@@ -171,11 +171,12 @@ ActiveRecord::Schema.define(version: 20161127131321) do
 
   create_table "reviews", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title"
-    t.text     "content",    limit: 65535
+    t.text     "content",     limit: 65535
+    t.text     "description", limit: 65535
     t.integer  "user_id"
     t.integer  "tour_id"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.index ["tour_id"], name: "index_reviews_on_tour_id", using: :btree
     t.index ["user_id"], name: "index_reviews_on_user_id", using: :btree
   end
@@ -203,6 +204,17 @@ ActiveRecord::Schema.define(version: 20161127131321) do
     t.string  "name",                       collation: "utf8_bin"
     t.integer "taggings_count", default: 0
     t.index ["name"], name: "index_tags_on_name", unique: true, using: :btree
+  end
+
+  create_table "tour_rule_prices", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "tour_rule_id"
+    t.integer  "tour_id"
+    t.date     "day"
+    t.integer  "price"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["tour_id"], name: "index_tour_rule_prices_on_tour_id", using: :btree
+    t.index ["tour_rule_id"], name: "index_tour_rule_prices_on_tour_rule_id", using: :btree
   end
 
   create_table "tour_rules", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -259,7 +271,7 @@ ActiveRecord::Schema.define(version: 20161127131321) do
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.string   "gravatar"
-    t.integer  "role"
+    t.integer  "role",                   default: 0
     t.datetime "deleted_at"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false

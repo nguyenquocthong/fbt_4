@@ -14,13 +14,12 @@
         user: review.user, disable: false, readonly: true %>
 
       <div class="row custom-div-text">
-        <%= truncate review.content, length: Settings.max_char do %>
-          <%= link_to t("view.continute"), tour_review_path(@tour, review) %>
+        <%= review.description %>
+        <%= link_to t("view.continute"), tour_review_path(@tour, review) %>
 
-          <div class="like-div-<%= review.id %>-<%= t "view.review" %>">
-            <%= render "likes/form_like", target: review %>
-          </div>
-        <% end %>
+        <div class="like-div-<%= review.id %>-<%= t "view.review" %>">
+          <%= render "likes/form_like", target: review %>
+        </div>
       </div>
 
       <div class="row div-comment-form-<%= review.id %>">

@@ -6,9 +6,11 @@
     <%= render "tours/form_review_rate",
       user: @review.user, disable: false, readonly: true %>
 
-    <div class="row">
-      <label><%= t "view.titlereview" %></label>
-      <%= @review.title %>
+    <div class="row text-center">
+      <h3>
+        <label><%= t "view.titlereview" %></label>
+        <%= @review.title %>
+      </h3>
     </div>
     <div class="row">
       <label><%= t "view.reviewby" %></label>
@@ -16,9 +18,16 @@
     </div>
 
     <div class="row">
+      <label><%= t "view.description" %></label>
+      <div class="custom-div-text-tour">
+        <%= @review.description %>
+      </div>
+    </div>
+
+    <div class="row">
       <label><%= t "view.contentreview" %></label>
-      <div class="custom-div-text">
-        <%= @review.content %>
+      <div class="custom-div-text-tour">
+        <%= raw @review.content %>
       </div>
     </div>
 

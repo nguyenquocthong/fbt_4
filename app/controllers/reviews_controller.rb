@@ -1,8 +1,8 @@
 class ReviewsController < ApplicationController
   load_and_authorize_resource :tour, find_by: :slug
-  load_and_authorize_resource 
+  load_and_authorize_resource
 
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: :show
 
   def new
     @review = current_user.reviews.build
@@ -50,6 +50,6 @@ class ReviewsController < ApplicationController
 
   private
   def review_params
-    params.require(:review).permit :title, :content
+    params.require(:review).permit :title, :content, :description
   end
 end
